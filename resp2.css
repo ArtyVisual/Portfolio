@@ -1,0 +1,213 @@
+@media only screen and (max-width:1500px) {
+    .upper {
+        height: 350px;
+    }
+
+    .first {
+        padding: 2% 1% 0px 30px;
+        font-size: 7vh;
+        color: rgb(181, 184, 185);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 15px 30px 0px 30px;
+    }
+
+    .second {
+        padding: 0% 1%;
+        width: 400px;
+        font-size: 10vh;
+        color: rgb(252, 253, 253);
+        font-family: 'Times New Roman', Times, serif;
+        border-bottom: 1vh solid rgb(164, 128, 7);
+        border-width: 10px;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        margin: 0px 40px 0px 50px;
+    }
+
+    .third {
+        width: 500px;
+        padding: 5% 12% 2% 11%;
+        font-size: 2vh;
+        color: rgb(198, 213, 219);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .pic {
+        height: 352px;
+        width: 320px;
+    }
+
+    .left.first {
+        padding: 0% 1% 0px 0px;
+        font-size: 4vh;
+        color: rgb(129, 134, 134);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 20px 50px 0px 50px;
+    }
+
+    .leftsecond {
+        font-size: 14px;
+        width: 200px;
+        padding: 0% 10% 0px 0px;
+        color: rgb(205, 205, 205);
+        margin: 20px 50px 0px 50px;
+    }
+
+    .arrow {
+        height: 20px;
+        width: 20px;
+        background-color: rgb(67, 71, 85);
+    }
+
+
+
+    .icons {
+        margin: 10px 55px;
+        display: flex;
+        gap: 20px;
+
+    }
+
+    .icon-button {
+        color: darkgoldenrod;
+        font-size: 2vh;
+        background-color: rgb(67, 71, 85);
+        /* Button background color */
+        margin: 10px 45px;
+        /* Adjust padding as needed */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        /* Rounded corners */
+        cursor: pointer;
+        font-size: 2vh;
+        display: inline-block;
+        /* Display as inline block to fit content */
+    }
+
+    .icon {
+        padding: 6px;
+        display: inline-block;
+        width: 15px;
+        /* Adjust width of icon */
+        height: 15px;
+        /* Adjust height of icon */
+        background-image: url('right-arrow.png');
+        /* Path to your PNG icon */
+        background-size: cover;
+        /* Make sure the icon covers its container */
+        margin: 5px;
+        /* Adjust margin between icon and text */
+        margin-top: 3px;
+        margin-bottom: 0.4px;
+    }
+
+}
+
+@media only screen and (max-width:1000px) {
+    .upper {
+        height: 350px;
+    }
+
+    .first {
+        padding: 2% 1% 0px 20px;
+        font-size: 5vh;
+        color: rgb(181, 184, 185);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 15px 30px 0px 30px;
+    }
+
+    .second {
+        padding: 0% 1%;
+        width: 300px;
+        font-size: 7vh;
+        color: rgb(252, 253, 253);
+        font-family: 'Times New Roman', Times, serif;
+        border-bottom: 1vh solid rgb(164, 128, 7);
+        border-width: 10px;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        margin: 0px 0px 0px 40px;
+    }
+
+    .third {
+        width: 400px;
+        padding: 5% 5% 20% 8%;
+        font-size: 2vh;
+        color: rgb(198, 213, 219);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .pic {
+        height: 352px;
+        width: 320px;
+    }
+
+    .left.first {
+        padding: 0% 1% 0px 0px;
+        font-size: 4vh;
+        color: rgb(129, 134, 134);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 20px 50px 0px 50px;
+    }
+
+    .leftsecond {
+        font-size: 14px;
+        width: 200px;
+        padding: 0% 10% 0px 0px;
+        color: rgb(205, 205, 205);
+        margin: 20px 50px 0px 50px;
+    }
+
+    .arrow {
+        height: 20px;
+        width: 20px;
+        background-color: rgb(67, 71, 85);
+    }
+
+
+
+    .icons {
+        margin: 10px 55px;
+        display: flex;
+        gap: 20px;
+
+    }
+
+    .icon-button {
+        color: darkgoldenrod;
+        font-size: 2vh;
+        background-color: rgb(67, 71, 85);
+        /* Button background color */
+        margin: 10px 45px;
+        /* Adjust padding as needed */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        /* Rounded corners */
+        cursor: pointer;
+        font-size: 2vh;
+        display: inline-block;
+        /* Display as inline block to fit content */
+    }
+
+    .icon {
+        padding: 6px;
+        display: inline-block;
+        width: 15px;
+        /* Adjust width of icon */
+        height: 15px;
+        /* Adjust height of icon */
+        background-image: url('right-arrow.png');
+        /* Path to your PNG icon */
+        background-size: cover;
+        /* Make sure the icon covers its container */
+        margin: 5px;
+        /* Adjust margin between icon and text */
+        margin-top: 3px;
+        margin-bottom: 0.4px;
+    }
+
+}
