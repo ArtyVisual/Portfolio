@@ -294,11 +294,10 @@ li img {
 
 .aboutme{
     padding: 2%;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     letter-spacing: 0.3px;
     word-spacing: 5px;
     color: var(--text-col);
-    font-size: 3vw;
+    font-size: 4vw;
     text-align: center;
     background-color: var(--sec-col);
     
@@ -597,6 +596,12 @@ li img {
 }
 
 /* font-css */
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 
 .playwrite-fr-moderne-font {
     font-family: "Playwrite FR Moderne", cursive;
