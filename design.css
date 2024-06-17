@@ -41,7 +41,9 @@
 .dropdown:hover #dropbtn {
     background-color: #110f2d;
 }
-
+.logo{
+    margin-left: -700%;
+}
 .upper {
     display: flex;
     overflow: hidden;
