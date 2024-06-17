@@ -53,6 +53,17 @@
         margin: 10% 10% 10% 15%;
         height: 40vh;
     }
+    .des-pic{
+        display: none;
+    }
+
+    .mob-pic{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0% 20%;
+
+    }
     
 .left_first {
     padding: 0%;
@@ -60,7 +71,7 @@
     font-size: 4vh;
     color: rgb(129, 134, 134);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 0% 10% 0px 10%;
+    margin: 10% 10% 0px 10%;
 }
 
 .left_second {
@@ -92,7 +103,7 @@
     /* Button background color */
     margin: 2% 35%;
     /* Adjust padding as needed */
-    padding: 2% 2% 2% 4%;
+    padding: 2% 2% 10% 4%;
     border: none;
     border-radius: 5px;
     /* Rounded corners */
@@ -127,13 +138,16 @@
 
 
 .center1 {
-    display: block;
+    display: grid;
     justify-content: center;
     align-items: center;
-    height: 310px;
+    height: 180px;
     width: auto;
     background-image: url(img/back6.png);
+    background-position: center;
+    background-size: contain;
     overflow: hidden;
+    margin: 0%;
 
 
 }
@@ -141,15 +155,15 @@
 .comp1 {
     box-shadow: 7px 10px 9px 0px rgb(46 45 45);
     border-radius: 2px;
-    margin: 10% 13%;
-    height: 200px;
-    width: 300px;
+    margin: 0%;
+    height: 180px;
+    width: 350px;
     background-color: #838991;
     border: 1px solid #adadad;
 }
 
 .comp2 {
-    margin: 12% 5%;
+    margin: 10% 5%;
     display: flex;
     flex-wrap:wrap;
     justify-content: center;
@@ -180,7 +194,7 @@ li img {
 
 .aboutme{
     font-weight: 500;
-    padding: 10px 10px 50px 10px;
+    padding: 60px 10px 50px 10px;
     font-size: 12vw;
     letter-spacing: 1px;
 }

@@ -95,6 +95,10 @@ img {
     background-image: url("background2.png");
 }
 
+.mob-pic{
+    display: none;
+}
+
 .left_first {
     padding: 0% 1% 0px 20%;
     font-size: 5vh;
@@ -180,7 +184,9 @@ img {
     align-self: center;
     width: 360px;
 }
-
+#mob-pic{
+    display: none;
+}
 .left.first {
     padding: 0% 1% 0px 0px;
     font-size: 3vh;
@@ -602,6 +608,7 @@ li img {
     font-style: normal;
   }
   
+
   
 
 .playwrite-fr-moderne-font {
