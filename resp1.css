@@ -141,8 +141,9 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    height: 180px;
+    height: 200px;
     width: auto;
+    padding: 0% 0% 10% 0%;
     background-image: url(img/back6.png);
     background-position: center;
     background-size: contain;
