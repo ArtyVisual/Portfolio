@@ -596,11 +596,12 @@ li img {
 }
 
 /* font-css */
-.bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
+.lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-weight: 500;
     font-style: normal;
   }
+  
   
 
 .playwrite-fr-moderne-font {
