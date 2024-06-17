@@ -104,13 +104,16 @@ img {
 }
 
 .left_second {
+    transition: all 10s ease;
     text-align: left;
     font-size: 2ch;
-    width: 300px;
+    width: 350px;
     padding: 0% 10% 0px 20%;
     color: rgb(230, 220, 220);
     margin: 20px 50px 0px 50px;
 }
+
+
 
 #cursor {
     animation: blink 0.5s infinite alternate;

@@ -67,7 +67,7 @@
     text-align: center;
     font-size: 2vh;
     width: 400px;
-    padding: 0% 5%;
+    padding: 2% 5% 8% 5%;
     color: rgb(230, 220, 220);
 }
 
@@ -90,7 +90,7 @@
     font-size: 2vh;
     background-color: rgb(67, 71, 85);
     /* Button background color */
-    margin: 4% 35%;
+    margin: 2% 35%;
     /* Adjust padding as needed */
     padding: 2% 2% 2% 4%;
     border: none;
@@ -175,7 +175,7 @@ li img {
 
 .sam1 {
     width: 73px;
-    padding: 3px 11px;
+    padding: 2px 11px;
 }
 
 .aboutme{
