@@ -87,10 +87,10 @@
 
 .icon-button {
     color: darkgoldenrod;
-    font-size: 3vh;
+    font-size: 2vh;
     background-color: rgb(67, 71, 85);
     /* Button background color */
-    margin: 20px 30%;
+    margin: 4% 35%;
     /* Adjust padding as needed */
     padding: 2% 2% 2% 4%;
     border: none;
@@ -151,7 +151,7 @@
 .comp2 {
     margin: 12% 5%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -174,7 +174,8 @@ li img {
 }
 
 .sam1 {
-    padding: 3px 10px;
+    width: 73px;
+    padding: 3px 11px;
 }
 
 .aboutme{
