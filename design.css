@@ -71,9 +71,8 @@ img {
     width: 450px;
     padding: 0% 1%;
     font-size: 8vh;
-    color: rgb(252, 253, 253);
-    font-family: 'Times New Roman', Times, serif;
-    border-bottom: 1vh solid rgb(164, 128, 7);
+    color: rgb(17 24 39);
+    border-bottom: 1vh solid rgb(61 64 77);
     border-width: 10px;
     border-left: none;
     border-top: none;
@@ -606,7 +605,13 @@ li img {
 /* font-css */
 .lobster-regular {
     font-family: "Lobster", sans-serif;
-    font-weight: 500;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+.zain {
+    font-family: "Zain", sans-serif;
+    font-weight: 700;
     font-style: normal;
   }
   
