@@ -648,9 +648,50 @@ li img {
     padding-bottom:2%;
 
 }
-.email{
-    color:goldenrod;
-    font-weight: 400;
-    padding-bottom:5%;
+.contact{
+    padding: 2%;
+    letter-spacing: 0.3px;
+    word-spacing: 5px;
+    color: var(--text-col);
+    font-size: 4vw;
+    text-align: center;
+    background-color: var(--pri-col);
+}
+.contact:hover{
+    text-shadow: -1px 1px 20px rgb(137, 146, 176);
+}
+.msg{
+    margin-top: 5%;
+}
+.form-content{
+    width: fit-content;
+    padding: 30px 40px;
+    border: 2px solid silver;
 }
 
+.form-content div:not(.submit){
+    margin: 25px 0px;
+    border-bottom: 1px solid white;
+}
+
+input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    padding: 6px 4px;
+    color: white;
+    font-size: 16px;
+}
+
+.submit button{
+    border: none;
+    outline: none;
+    background-color: rgb(37, 42, 61);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
