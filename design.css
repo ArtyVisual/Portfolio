@@ -649,17 +649,9 @@ li img {
 
 }
 .contact{
-    padding: 2%;
-    letter-spacing: 0.3px;
-    word-spacing: 5px;
-    color: var(--text-col);
-    font-size: 4vw;
-    text-align: center;
     background-color: var(--pri-col);
 }
-.contact:hover{
-    text-shadow: -1px 1px 20px rgb(137, 146, 176);
-}
+
 .msg{
     margin-top: 5%;
 }
