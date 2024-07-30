@@ -25,14 +25,13 @@
         padding: 0% ;
         font-size: 6vh;
         text-align: center;
-        color: rgb(1, 4, 32);
+        color: rgb(255, 255, 255);
         border-bottom: 1vh solid rgb(61 64 77);
         border-width: 10px;
         border-left: none;
         border-top: none;
         border-right: none;
         margin: 2% 10% 0% 15%;
-        
     }
 
     .third {

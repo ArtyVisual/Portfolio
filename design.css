@@ -67,11 +67,17 @@ img {
     margin-bottom: 0px;
 }
 
+.glowing-text {
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 0 0 25px #010a37;
+}
+
 .second {
     width: 450px;
     padding: 0% 1%;
     font-size: 8vh;
-    color: rgb(17 24 39);
+    color: rgb(255, 255, 255);
     border-bottom: 1vh solid rgb(61 64 77);
     border-width: 10px;
     border-left: none;
