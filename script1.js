@@ -1,4 +1,4 @@
-const texts = ["Abbas Vajwana", "Web-developer", "Graphic-desginer" , "Ui-Ux Designer"]; // Array of texts to be typed
+const texts = ["Abbas Vajwana", "Web-Developer", "Graphic-Designer" , "Ui-Ux Designer"]; // Array of texts to be typed
 const Ispeed = 100; // Typing speed in milliseconds
 let textIndex = 0;
 let charIndex = 0;
