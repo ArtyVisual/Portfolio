@@ -1,4 +1,4 @@
-import './app.css';
+import './App.css';
 import { NavLink } from "react-router-dom";
 import TypingText from './component/CursorName';
 import { useEffect } from 'react';
