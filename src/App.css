@@ -1341,8 +1341,8 @@ input {
 @media only screen and (max-width:1000px) {
 
   .first {
-    padding: 2% 1% 0px 20px;
-    font-size: 5vh;
+    padding: 0;
+    font-size: 30px;
     color: rgb(181, 184, 185);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 15px 30px 0px 30px;
