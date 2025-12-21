@@ -106,7 +106,7 @@ img {
   height: 80vh;
   margin-top: 8%;
   padding: 0px;
-  background-image: url("./img/background2.png");
+  background-image: url("/img/background2.png");
 }
 
 .mob-pic {
@@ -169,7 +169,7 @@ img {
   /* Adjust width of icon */
   height: 15px;
   /* Adjust height of icon */
-  background-image: url("./img/right-arrow.png");
+  background-image: url("/img/right-arrow.png");
   /* Path to your PNG icon */
   background-size: cover;
   /* Make sure the icon covers its container */
@@ -255,7 +255,7 @@ img {
   /* Adjust width of icon */
   height: 15px;
   /* Adjust height of icon */
-  background-image: url('./img/right-arrow.png');
+  background-image: url('/img/right-arrow.png');
   /* Path to your PNG icon */
   background-size: cover;
   /* Make sure the icon covers its container */
@@ -409,7 +409,7 @@ li img {
   justify-content: center;
   align-items: center;
   height: 350px;
-  background-image: url("./img/back5.png");
+  background-image: url("/img/back5.png");
 }
 
 .card {
@@ -827,7 +827,7 @@ input {
     /* Adjust width of icon */
     height: 15px;
     /* Adjust height of icon */
-    background-image: url("./img/right-arrow.png");
+    background-image: url("/img/right-arrow.png");
     /* Path to your PNG icon */
     background-size: cover;
     /* Make sure the icon covers its container */
@@ -851,7 +851,7 @@ input {
     height: 200px;
     width: auto;
     padding: 0% 0% 10% 0%;
-    background-image: url("./img/back6.png");
+    background-image: url("/img/back6.png");
     background-position: center;
     background-size: contain;
     overflow: hidden;
@@ -998,7 +998,7 @@ input {
     justify-content: center;
     align-items: center;
     height: auto;
-    background-image: url("./img/back7.png");
+    background-image: url("/img/back7.png");
     padding-bottom: 20%;
   }
 
@@ -1325,7 +1325,7 @@ input {
     /* Adjust width of icon */
     height: 15px;
     /* Adjust height of icon */
-    background-image: url('./img/right-arrow.png');
+    background-image: url('/img/right-arrow.png');
     /* Path to your PNG icon */
     background-size: cover;
     /* Make sure the icon covers its container */
@@ -1437,7 +1437,7 @@ input {
     /* Adjust width of icon */
     height: 15px;
     /* Adjust height of icon */
-    background-image: url('./img/right-arrow.png');
+    background-image: url('/img/right-arrow.png');
     /* Path to your PNG icon */
     background-size: cover;
     /* Make sure the icon covers its container */
