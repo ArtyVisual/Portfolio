@@ -106,11 +106,7 @@ const App = () => {
             <div className="right first">I'm</div>
             <TypingText />
 
-
-            <br />
-            <br />
-
-            <div className="right third">
+            <div className="right third mb-20">
               A web developer who provides great designs and development services for your websites and software.
               I specialize in creating a high-quality digital experiences tailored to your needs.
               I ensure that every project is delivered to the highest standards.
