@@ -63,7 +63,7 @@ const App = () => {
               </div>
 
             </div>
-            <div className="flex flex-2 items-center justify-center sm:items-stretch">
+            <div className="flex flex-1 items-center justify-center sm:items-stretch">
               <div className="flex flex-shrink-0 items-center">
                 <img
                   className="h-8 w-14 logo"
@@ -88,13 +88,7 @@ const App = () => {
                   </a>
                 </div>
               </div>
-            </div>
-
-            <img
-              className="h-8 w-8 rounded-full"
-              src="/img/IMG-20230114-WA0018 - Copy.jpg"
-              alt="Profile"
-            />
+            </div> 
           </div>
         </div>
       </nav>
@@ -132,7 +126,7 @@ const App = () => {
               let's build quality products in programming and design with my services.
             </div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <button
                 id="show-more-btn"
                 className="icon-button hover:bg-gray-700 hover:text-yellow-600 block rounded-md px-3 py-2 text-base font-medium"
