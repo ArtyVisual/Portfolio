@@ -132,7 +132,6 @@ const App = () => {
                 className="icon-button pb-0 hover:bg-gray-700 hover:text-yellow-600 block rounded-md px-3 py-2 text-base font-medium"
               >
                 <span>Show More</span>
-             
               </button>
             </div>
           </div>
@@ -248,21 +247,21 @@ const App = () => {
           </div>
 
           <div className="img1">
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <img src="/img/alvaro-reyes-zvmZiw3vdsQ-unsplash.jpg" alt="" />
               <div className="tag">Ui/Ux Design</div>
             </div>
 
             <div className="line"></div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <img src="/img/clement-helardot-95YRwf6CNw8-unsplash.jpg" alt="" />
               <div className="tag">Web Development</div>
             </div>
 
             <div className="line"></div>
 
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <img src="/img/4324809_18695.jpg" alt="" />
               <div className="tag">Graphic Design</div>
             </div>
