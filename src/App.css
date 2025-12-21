@@ -66,7 +66,7 @@ img {
 }
 
 .first {
-  padding: 10% 1% 0px 20px;
+  padding: 10% 0 0 13px;
   font-size: 8vh;
   color: rgb(181, 184, 185);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -91,7 +91,7 @@ img {
   border-left: none;
   border-top: none;
   border-right: none;
-  margin: 5px 50px 10px 60px;
+  margin: 5px 50px 20px 60px;
   border-block-width: 10px;
 }
 
@@ -150,10 +150,6 @@ img {
   color: darkgoldenrod;
   font-size: 3vh;
   background-color: var(--pri-col);
-  /* Button background color */
-  margin: 20px 70px;
-  /* Adjust padding as needed */
-  padding: 10px;
   border: none;
   border-radius: 5px;
   /* Rounded corners */
@@ -236,17 +232,11 @@ img {
   color: darkgoldenrod;
   font-size: 2vh;
   background-color: var(--pri-col);
-  /* Button background color */
-  margin: 10px 30%;
-  /* Adjust padding as needed */
-  padding: 10px;
   border: none;
   border-radius: 5px;
-  /* Rounded corners */
   cursor: pointer;
   font-size: 2vh;
   display: inline-block;
-  /* Display as inline block to fit content */
 }
 
 .icon {
@@ -769,7 +759,7 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0% 20%;
+    padding: 0% 10%;
 
   }
 
@@ -787,7 +777,7 @@ input {
     text-align: center;
     font-size: 2vh;
     width: fit-content;
-    padding: 30px;
+    padding: 10px  30px;
     color: rgb(230, 220, 220);
     margin: 0;
   }
@@ -810,17 +800,10 @@ input {
     color: darkgoldenrod;
     font-size: 2vh;
     background-color: var(--pri-col);
-    /* Button background color */
-    margin: 2% 35%;
-    /* Adjust padding as needed */
-    padding: 2% 2% 10% 4%;
     border: none;
     border-radius: 5px;
-    /* Rounded corners */
     cursor: pointer;
-    /* font-size: 2vh; */
     display: inline-block;
-    /* Display as inline block to fit content */
   }
 
   .icon {
@@ -1306,17 +1289,11 @@ input {
     color: darkgoldenrod;
     font-size: 2vh;
     background-color: var(--pri-col);
-    /* Button background color */
-    margin: 10px 45px;
-    /* Adjust padding as needed */
-    padding: 10px;
     border: none;
     border-radius: 5px;
-    /* Rounded corners */
     cursor: pointer;
     font-size: 2vh;
     display: inline-block;
-    /* Display as inline block to fit content */
   }
 
   .icon {
@@ -1416,10 +1393,6 @@ input {
     color: darkgoldenrod;
     font-size: 2vh;
     background-color: var(--pri-col);
-    /* Button background color */
-    margin: 10px 45px;
-    /* Adjust padding as needed */
-    padding: 10px;
     border: none;
     border-radius: 5px;
     /* Rounded corners */

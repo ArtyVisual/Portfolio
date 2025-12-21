@@ -119,20 +119,20 @@ const App = () => {
             />
           </div>
 
-          <div>
+          <div className='mb-5'>
             <div className="left_first">Services</div>
 
-            <div className="left_second">
+            <div className="left_second pb-0">
               let's build quality products in programming and design with my services.
             </div>
 
             <div style={{ display: "flex", justifyContent: "center" }}>
               <button
                 id="show-more-btn"
-                className="icon-button hover:bg-gray-700 hover:text-yellow-600 block rounded-md px-3 py-2 text-base font-medium"
+                className="icon-button pb-0 hover:bg-gray-700 hover:text-yellow-600 block rounded-md px-3 py-2 text-base font-medium"
               >
                 <span>Show More</span>
-                <span className="icon"></span>
+             
               </button>
             </div>
           </div>
