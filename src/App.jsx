@@ -1,43 +1,106 @@
 import './App.css';
 import { NavLink } from "react-router-dom";
-import TypingText from './component/CursorName';
-import { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect, useRef, useState } from 'react';
+import projects from "./data/ProjectsData";
+import emailjs from "emailjs-com";
+import { errorToast, successToast } from './utils/Toast';
+
 
 const App = () => {
 
-  useEffect(() => {
-    document.getElementById("show-more-btn").addEventListener("click", function () {
-      const btn = document.querySelector(".icon-button");
-      const leftSecondDiv = document.querySelector(".left_second");
-      const additionalText = "I offer comprehensive programming and design services tailored to your needs, including web development, UI/UX design, and more.";
+  const sectionRef = useRef(null);
+  const [open, setOpen] = useState(false);
 
-      if (!leftSecondDiv.classList.contains("expanded")) {
-        btn.style.display = "none";
-        leftSecondDiv.innerHTML += additionalText;
-        leftSecondDiv.classList.add("expanded");
-      }
-    });
+  const handleSubmit = (e) => {
+    
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+    e.preventDefault();
 
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    emailjs.send(
+      "service_l8h3u4j",
+      "template_dvmyl2i",
+      formData,
+      "q8EYAMToN5e7RaN0H"
+    )
+      .then(() => {
+        successToast("Message sent. I’ll get back to you.");
+      })
+      .catch(() => {
+        errorToast("Something went wrong!");
       });
+  };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
     });
-  })
+  }, []);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const cards = section.querySelectorAll(".tech-card");
+
+    const handleMove = (e) => {
+      const { clientX, clientY } = e;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+
+        const x = clientX - (rect.left + rect.width / 2);
+        const y = clientY - (rect.top + rect.height / 2);
+
+        const moveX = x * 0.08;
+        const moveY = y * 0.08;
+
+        card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+      });
+    };
+
+    const handleLeave = () => {
+      cards.forEach(card => {
+        card.style.transform = `translate(0px, 0px) scale(1)`;
+      });
+    };
+
+    // 👇 ONLY bind to section
+    section.addEventListener("mousemove", handleMove);
+    section.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      section.removeEventListener("mousemove", handleMove);
+      section.removeEventListener("mouseleave", handleLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    const steps = document.querySelectorAll(".work-step");
+    let index = 0;
+
+    const interval = setInterval(() => {
+      steps.forEach(s => s.classList.remove("active"));
+      steps[index].classList.add("active");
+
+      index = (index + 1) % steps.length;
+    }, 1200);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
-      <nav style={{ backgroundColor: "rgb(67, 71, 85)" }}>
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-          <div className="relative flex h-16 items-center justify-between">
+      <nav>
+        <div className="mx-auto">
+          <div className="relative flex sm:h-16 h-12 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               <div className="dropdown">
                 <button id="dropbtn" type="button"
@@ -64,19 +127,11 @@ const App = () => {
 
             </div>
             <div className="flex flex-1 items-center justify-center sm:items-stretch">
-              <div className="flex flex-shrink-0 items-center">
-                <img
-                  className="h-8 w-14 logo"
-                  src="/img/new1.png"
-                  alt="Logo"
-                />
-              </div>
+              <h3 className='main-name borel-regular'>Abbas Wajvana</h3>
 
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  <a className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium">
-                    Dashboard
-                  </a>
+                  
                   <a href="#About" className="text-gray-300 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                     About
                   </a>
@@ -88,543 +143,391 @@ const App = () => {
                   </a>
                 </div>
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </nav>
 
-      <section>
-        <div className="upper">
-          <div className="righty">
+      <section className="upper">
 
-            <div className="right first">I'm</div>
-            <TypingText />
+        <div className="right sm:gap-5 gap-2">
+          <h1 className="first">
+            I build <span className="highlight">websites</span> and <span className="highlight">systems</span> that simplify your business operations.
+          </h1>
+          <h3 className="subtext sm:pb-5 pb-3">
+            From websites to custom dashboards and CMS, I create solutions tailored to your business needs with scalable and efficient systems.
+          </h3>
+          <div className='flex '>
+            <button className='action-btn me-4' onClick={handleSubmit}>
+              <div>
+                <img src="/img/whatsapp (1).png" width="20" height="20" alt="" />
+              </div>
+              Chat On Whatsapp</button>
+            <button className='action-btn'>View My Work</button>
+          </div>
+        </div>
 
-            <div className="right third mb-20">
-              A web developer who provides great designs and development services for your websites and software.
-              I specialize in creating a high-quality digital experiences tailored to your needs.
-              I ensure that every project is delivered to the highest standards.
-              Whether you need a new website, a redesign, or custom software, I have the expertise to bring your
-              vision to life.
-              Contact me to discuss how we can collaborate on your next project.
+        <div className="picclass">
+          <img src="/img/bg4.png" alt="image" />
+        </div>
+
+      </section>
+
+      <section className='second-section'>
+        {/* <h1 id="About" className="section-heading">About Me</h1> */}
+        <div className='grid md:grid-cols-3 md:gap-24 gap-10 items-center'>
+
+          <div className='column'>
+            <div className="dummy-dashboard">
+
+              <div className='grid grid-cols-2 gap-3'>
+                <div className="bars">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div className="grid-box">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+
+              <div className="header"></div>
+              <div className='grid gap-2'>
+                <div className="line short"></div>
+                <div className="line"></div>
+                <div className="line medium mb-0"></div>
+              </div>
+              <div className='chart'>
+
+                <div className="line-chart">
+
+                  <svg viewBox="0 0 220 100" preserveAspectRatio="none">
+                    <path
+                      id="chartPath"
+                      d="
+                        M0,30 
+
+                        L20,80
+                        
+                        L40,50 
+                      
+                        L60,80 
+                      
+                        L80,70 
+                       
+                        L100,30
+                        
+                        L120,60
+                        
+                        L140,30
+                        L160,80
+                        L180,40
+                        L200,20
+                        L220,80
+                      "
+                      className="chart-line"
+                    />
+
+                    <circle r="3" className="moving-dot">
+                      <animateMotion
+                        dur="3s"
+                        repeatCount="indefinite"
+                        rotate="auto"
+                      >
+                        <mpath href="#chartPath" />
+                      </animateMotion>
+                    </circle>
+
+                  </svg>
+                </div>
+              </div>
+              <div className='box-chart pb-10 sm:pb-24'></div>
+
             </div>
           </div>
 
-          <div className="picclass des-pic">
-            <img
-              className="pic"
-              src="/img/bg4.png"
-              alt=""
-              style={{ margin: "6% 0%", width: "130vw" }}
-            />
+          <div className='column'>
+            <div className="timeline">
+
+              <div className="timeline-item" data-aos="fade-up" data-aos-delay="0">
+                <h4>Understand your business & workflow</h4>
+                <div className="line"></div>
+              </div>
+
+              <div className="timeline-item" data-aos="fade-up" data-aos-delay="150">
+                <h4>Design simple and efficient solutions</h4>
+                <div className="line"></div>
+              </div>
+
+              <div className="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                <h4>Build custom systems tailored to you</h4>
+                <div className="line"></div>
+              </div>
+
+              <div className="timeline-item" data-aos="fade-up" data-aos-delay="450">
+                <h4>Automate tasks and reduce manual work</h4>
+                <div className="line"></div>
+              </div>
+
+              <div className="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                <h4>Improve performance and handle growth smoothly</h4>
+                <div className="line"></div>
+              </div>
+
+            </div>
           </div>
 
-          <div className='mb-5'>
-            <div className="left_first">Services</div>
+          <div className='column border-card'>
+            <div className="space-y-4">
 
-            <div className="left_second pb-0">
-              let's build quality products in programming and design with my services.
+              <div className="group transition duration-300 hover:scale-105" data-aos="zoom-in" data-aos-delay="100">
+                <h4>Who I Work With</h4>
+                <h3>Small businesses & startups</h3>
+              </div>
+
+              <div className="group transition duration-300 hover:scale-105" data-aos="zoom-in" data-aos-delay="250">
+                <h4>What I Build</h4>
+                <h3>Custom websites & management systems</h3>
+              </div>
+
+              <div className="group transition duration-300 hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+                <h4>What You Get</h4>
+                <h3>Clean, scalable systems that save time</h3>
+              </div>
+
+              <div className="group transition duration-300 hover:scale-105" data-aos="zoom-in" data-aos-delay="550">
+                <h4>My Approach</h4>
+                <h3>Simple, practical, and solution focused</h3>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section ref={sectionRef} className="third-section">
+        <h2 className='section-heading'>Technologies I use to build scalable systems</h2>
+        <div className="tech-grid">
+
+          {[
+            { src: "/img/html.png", name: "HTML" },
+            { src: "/img/css-3.png", name: "CSS" },
+            { src: "/img/js-file.png", name: "Javascript" },
+            { src: "/img/atom.png", name: "React JS" },
+            { src: "/img/node.png", name: "Node JS" },
+            { src: "/img/mongodb.png", name: "MongoDB" },
+            { src: "/img/mysql.png", name: "MySQL" },
+            { src: "/img/python.png", name: "Python" },
+            { src: "/img/github.png", name: "Github" },
+            { src: "/img/oracle.png", name: "Oracle" },
+          ].map((item, i) => (
+
+            <div className="tech-card" key={i}>
+              <img src={item.src} />
+              <h3>{item.name}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className='fourth-section grid grid-cols-1 md:grid-cols-2 gap-9'>
+
+        {projects.map((project, index) => (
+          <div className="project-card" key={index}>
+
+            <div className="project-left">
+              <span className={`tag small-text ${project.tag.toLowerCase().replace(" ", "-")}`}>
+                {project.tag}
+              </span>
+
+              <h2>{project.name}</h2>
+              <p>{project.desc}</p>
+
+              <div className="tech">
+                {project.tech.map((t, i) => (
+                  <span key={i} className="tech-item small-text">{t}</span>
+                ))}
+              </div>
+
+              <NavLink to={project.link}>
+                <button>Explore Project →</button>
+              </NavLink>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="preview-box">
+              <div className="img-card card1">
+                <img src={project.images[0]} alt="" />
+              </div>
+              <div className="img-card card2">
+                <img src={project.images[1]} alt="" />
+              </div>
+            </div>
+
+          </div>
+        ))}
+
+      </section>
+
+      <section className="work-section">
+        <h2 className='section-heading'>How I Work</h2>
+
+        <div className="work-flow">
+          <div className="progress-line"></div>
+
+          {[
+            "Understand your business",
+            "Plan efficient solution",
+            "Build tailored system",
+            "Automate workflows",
+            "Scale & optimize"
+          ].map((step, i) => (
+            <div className="work-step" key={i}>
+              <div className="dot"></div>
+              <div className='step-card'>
+                <h4 className=''>{step}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cta-section">
+        <div className="cta-box pt-10">
+          <h2 className='section-heading '>Let’s build something that actually works</h2>
+          <h3 className='mb-4 sm:mb-8'>
+            If you need a system that saves time, reduces manual work, and scales with your business — let’s talk.
+          </h3>
+
+          <div className="cta-buttons">
+            <button className="primary" onClick={() => setOpen(true)}>
+              Contact Me
+            </button>
+            <button className="secondary">View Resume</button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer grid md:grid-cols-3 ">
+
+        <div className="footer-left">
+          <h2 className='borel-regular'>Abbas Vajwana</h2>
+          <h3 className='big-text'>Building systems that simplify business operations.</h3>
+        </div>
+
+        <div className="footer-links">
+          <a href="#about" className='big-text'>About</a>
+          <a href="#projects" className='big-text'>Projects</a>
+          <a href="#contact" className='big-text'>Contact</a>
+        </div>
+
+        <div className="footer-contact text-center md:text-end">
+          <h2 className='md:mb-3 mb-1'>Lets Connect</h2>
+          <h3 className='big-text'>Got a project? I reply faster than most APIs.</h3>
+
+          <div className="icons">
+            <NavLink
+              to="https://www.instagram.com/abbas._.vajwana/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/img/instagram.png" width="30" height="30" alt="" />
+            </NavLink>
+
+            <NavLink
+              to="https://twitter.com/?lang=en"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/img/twitter.png" width="30" height="30" alt="" />
+            </NavLink>
+
+            <NavLink
+              to="https://wa.me/9602652152"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/img/whatsapp (1).png" width="30" height="30" alt="" />
+            </NavLink>
+          </div>
+        </div>
+
+        <p className="copyright">
+          © 2026 Abbas Wajvana. Built with intention.
+        </p>
+
+      </footer>
+
+      {open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 bg-slate-800/40 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+          ></div>
+
+          {/* Modal */}
+          <div className="contact-modal relative w-full max-w-md bg-[#0f0f0f] text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
+
+            {/* Header */}
+            <div className="flex justify-between items-center mb-4">
+              <h3>Let’s Work Together</h3>
               <button
-                id="show-more-btn"
-                className="icon-button pb-0 hover:bg-gray-700 hover:text-yellow-600 block rounded-md px-3 py-2 text-base font-medium"
+                onClick={() => setOpen(false)}
+                className=" cursor-pointer text-white/60 hover:text-white text-xl"
               >
-                <span>Show More</span>
+                X
               </button>
             </div>
-          </div>
 
-          <div className="mob-pic">
-            <img className="pic" src="/img/bg4.png" alt="" />
-          </div>
-        </div>
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-4">
 
-      </section>
-      <section>
-
-        <div className="center1">
-          <div className="comp1">
-            <ul className="comp2">
-              <li className="comp3">
-                <a
-                  href="https://www.youtube.com/@ArtyVisual7"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src="/img/youtube.png" width="65" alt="" />
-                </a>
-              </li>
-
-              <li className="comp3">
-                <a
-                  href="https://github.com/ArtyVisual/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src="/img/git.png" width="75" alt="" />
-                </a>
-              </li>
-
-              <li className="comp3">
-                <a
-                  href="https://coursera.org/verify/BBC6LLBEFT9L"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img className="sam" src="/img/coursera.png" width="65" alt="" />
-                </a>
-              </li>
-
-              <li className="comp3">
-                <a
-                  href="https://avajwana1001.wixsite.com/abbas"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img className="sam1" src="/img/wix.png" width="55" alt="" />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </section>
-      <h1 id="About" className="aboutme lobster-regular">About Me</h1>
-      <section>
-        <div id="center2">
-          <div className="cert">
-            <div className="heading">Certificates</div>
-
-            <ul className="cert1">
-              <li>
-                <a
-                  href="https://coursera.org/verify/BBC6LLBEFT9L"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Foundation Of (UX) Design
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://www.coursera.org/account/accomplishments/verify/KXQAQUU8RYBV"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  UX design process stages : Empathize , Define , Ideate
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="https://coursera.org/verify/U96UQGH8F9NT"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Developing Website using Wordpress
-                </a>
-              </li>
-
-              <li>
-                <a href="/Cert.html" target="_blank" rel="noreferrer">
-                  eSkill Data entry operator
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <div className="heading_2">What Can I Do</div>
-
-            <div className="blog">
-              As a web developer, my mission is simple: to transform your digital aspirations into
-              reality. Whether you seek a stunning website, seamless user experience, or robust
-              functionality. Let's collaborate to bring your vision to life, one line of code at a time.
-            </div>
-          </div>
-
-          <div className="img1">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img src="/img/alvaro-reyes-zvmZiw3vdsQ-unsplash.jpg" alt="" />
-              <div className="tag">Ui/Ux Design</div>
-            </div>
-
-            <div className="line"></div>
-
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img src="/img/clement-helardot-95YRwf6CNw8-unsplash.jpg" alt="" />
-              <div className="tag">Web Development</div>
-            </div>
-
-            <div className="line"></div>
-
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img src="/img/4324809_18695.jpg" alt="" />
-              <div className="tag">Graphic Design</div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      <section>
-        <div className="secondlast">
-          <div className="card">
-            <div className="front">
-              <img className="img" src="/img/web-programming.png" alt="" />
-              <p>Ui/Ux Design</p>
-            </div>
-            <div className="back">
-              <div>
-                "Skilled in UI/UX design, creating intuitive interfaces for exceptional user experiences."
-              </div>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="front">
-              <img className="img" src="/img/web-coding.png" alt="" />
-              <p>Web Development</p>
-            </div>
-            <div className="back">
-              <div style={{ fontSize: "2.3vh" }}>
-                Proficient in web development, creating dynamic and responsive websites that drive user
-                engagement and satisfaction.
-              </div>
-            </div>
-          </div>
-
-          <div className="card">
-            <div className="front">
-              <img className="img" src="/img/graphic-design.png" alt="" />
-              <p>Graphic Design</p>
-            </div>
-            <div className="back">
-              <div style={{ fontSize: "2.6vh" }}>
-                "Skilled graphic designer creating eye-catching visuals that boost brand appeal and connect
-                with audiences."
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-      <section>
-        <div className="last">
-          <div className="lang">
-            <img src="/img/python.png" alt="" />
-            <img src="/img/mysql.png" alt="" />
-            <img src="/img/html.png" alt="" />
-            <img src="/img/css-3.png" alt="" />
-            <img src="/img/js-file.png" alt="" />
-          </div>
-
-          <div className="lang lang1">
-            <img src="/img/letter-c (1).png" alt="" />
-            <img src="/img/c- (1).png" alt="" />
-            <img src="/img/c-sharp (1).png" alt="" />
-            <img src="/img/www.png" alt="" />
-            <img src="/img/java.png" alt="" />
-          </div>
-
-          <div className="lang">
-            <img src="/img/atom.png" alt="" />
-            <img src="/img/adobe-photoshop-logo (1).png" alt="" />
-            <img src="/img/illustrator.png" alt="" />
-            <img src="/img/github.png" alt="" />
-            <img src="/img/oracle.png" alt="" />
-          </div>
-        </div>
-
-      </section>
-      <h1 id="Projects" style={{ paddingTop: "5%" }} className="aboutme lobster-regular">Major - Projects</h1>
-      <section>
-        <div className="projects pb-16">
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Finance</span>
-            </div>
-
-            <img className="finance-image" src="/img/budget.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description">
-              Arty-Finance is a full-stack web application designed to manage personal finances with efficiency.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Arty-Finance/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Commerce</span>
-            </div>
-
-            <img className="finance-image" src="/img/online-store.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-commerce is a full-stack, interactive e-commerce platform.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Arty-Commerce/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Home</span>
-            </div>
-
-            <img className="finance-image" src="/img/hotel.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-Home is a user-friendly platform designed to connect tenants and lenders,
-              offering an interactive interface with a robust backend and beautifully crafted frontend for seamless
-              interactions.
-              <br /><br />
-              <NavLink className="view" to="https://arty-home.vercel.app/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Bookings</span>
-            </div>
-
-            <img className="finance-image" src="/img/trip.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-Booking is a full-stack project with innovative animations, offering seamless booking services for
-              hotels, flights, buses, and more.
-              <br /><br />
-              <NavLink className="view" to="https://arty-booking.vercel.app/#/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Café</span>
-            </div>
-
-            <img className="finance-image" src="/img/cafe.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-Café is a full-stack website with captivating animations and an intuitive interface, leveraging
-              modern frameworks for a seamless, responsive user experience.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Arty-Cafe/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Password</span>
-            </div>
-
-            <img className="finance-image" src="/img/padlock.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-Password is a innovative, full-stack solution for efficient password management, offering a
-              user-friendly interface and secure back-end for seamless organization.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Arty-Password/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Arty</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Cakes</span>
-            </div>
-
-            <img className="finance-image" src="/img/online-order.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Arty-Cakes is a visually stunning online cake shop, crafted with Tailwind CSS for an attractive and
-              intuitive user interface, ensuring a delightful user-experience
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Arty-Cakes/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Clone</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">Netflix</span>
-            </div>
-
-            <img className="finance-image" src="/img/netflix.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Netflix clone built using HTML & CSS.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Netflix/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text playwrite-fr-moderne-font">Clone</span>
-              <span className="finance-text playwrite-fr-moderne-font">-</span>
-              <span className="finance-text ubuntu-medium">X</span>
-              <span className="finance-text ubuntu-medium">(Twitter)</span>
-            </div>
-
-            <img className="finance-image" src="/img/netflix.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              X-clone is a replica of popular social media site X formerly known as twitter , this clone is created
-              using HTML and Tailwind CSS which is responsive and user friendly.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/X-clone/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text ubuntu-medium">Marksheet</span>
-            </div>
-
-            <img className="finance-image" src="./img/medical-result.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Marksheet is a web-based marksheet generator built with HTML, CSS, and JavaScript,
-              featuring automatic calculation of total marks, percentage, grade, and result status.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Marksheet/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-          <div className="Finance">
-            <div>
-              <span className="finance-text ubuntu-medium">Room-Booking</span>
-            </div>
-
-            <img className="finance-image" src="./img/hotel.png" style={{ height: 100, width: 100 }} alt="" />
-
-            <div className="description1">
-              Room-Booking is a booking management system developed using a C# framework,
-              focused on room availability, booking flow, and backend-driven logic.
-              <br /><br />
-              <NavLink className="view" to="https://artyvisual.github.io/Hotel_Booking/" target="_blank">
-                Go To Website →
-              </NavLink>
-            </div>
-          </div>
-
-          {/* repeat same pattern for rest */}
-        </div>
-      </section>
-      <footer id="Footer" className="Footer">
-        <h1
-          id="Projects"
-          className="aboutme contact lobster-regular"
-          style={{ paddingBottom: "1%" }}
-        >
-          Contact Me
-        </h1>
-
-        <div className="msg">
-          <form action="#" method="POST">
-            <div className="form-content">
               <input
-                type="hidden"
-                name="access_key"
-                value="5380afea-6095-4218-9864-96c3b22a135b"
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
               />
 
-              <h1
-                className="text-2xl md:text-3xl"
-                style={{
-                  color: "rgba(254, 218, 15, 0.699)",
-                  fontWeight: 500,
-                  textAlign: "center",
-                }}
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
+              />
+
+              <textarea
+                name="message"
+                placeholder="What do you need?"
+                rows="4"
+                required
+                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
+              />
+
+              <button
+                type="submit"
+                className="w-full primary rounded py-3"
               >
-                Message Me
-              </h1>
+                Send Message
+              </button>
 
-              <div className="name">
-                <input type="text" name="name" placeholder="Your Name" required />
-              </div>
-
-              <div className="email">
-                <input type="text" name="email" placeholder="Your email" />
-              </div>
-
-              <div className="msg">
-                <input type="text" name="message" placeholder="Your Message" />
-              </div>
-
-              <div className="submit">
-                <button type="submit">Submit</button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-
-        <div className="icons">
-          <a
-            href="https://www.instagram.com/abbas._.vajwana/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/img/instagram.png" width="30" height="30" alt="" />
-          </a>
-
-          <a
-            href="https://twitter.com/?lang=en"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/img/twitter.png" width="30" height="30" alt="" />
-          </a>
-
-          <a
-            href="https://wa.me/9602652152"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src="/img/whatsapp (1).png" width="30" height="30" alt="" />
-          </a>
-        </div>
-
-        <div
-          style={{
-            paddingBottom: "3%",
-            color: "#fff",
-            fontWeight: 500,
-            fontFamily: "Times New Roman, Times, serif",
-            fontSize: "larger",
-          }}
-        >
-          copyright 2023 || all rights reserved
-        </div>
-      </footer>
+      )}
 
     </div >
   );

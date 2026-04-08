@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "aos": "^2.3.4",
     "bootstrap-icons": "^1.13.1",
+    "emailjs-com": "^3.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.11.0",
+    "react-toastify": "^11.0.5",
+    "sweetalert2": "^11.26.24",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
