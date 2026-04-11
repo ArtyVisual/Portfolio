@@ -32,6 +32,14 @@
       images: ["/img/booking1.png", "/img/booking2.png"]
     },
     {
+      name: "Zorvyn Dashboard",
+      desc: "Designed interactive UI with responsive layouts and smooth ordering experience for Zorvyn assesment.",
+      tech: ["Tailwind CSS", "React"],
+      tag: "Frontend",
+      link: "https://abbas-finance-dashboard.vercel.app/",
+      images: ["/img/zorvyn2.png", "/img/zorvyn3.png"]
+    },
+    {
       name: "Cake Shop (Client Project)",
       desc: "Designed conversion-focused UI with responsive layouts and smooth ordering experience for real client.",
       tech: ["Tailwind CSS", "UI Design"],
@@ -71,14 +79,14 @@
       link: "https://artyvisual.github.io/Marksheet/",
       images: ["/img/marksheet1.png", "/img/marksheet2.png"]
     },
-    {
-      name: "Room Booking System",
-      desc: "Developed backend-focused system handling booking logic, validations, and structured data processing.",
-      tech: [".NET", "C#"],
-      tag: "Backend",
-      link: "https://artyvisual.github.io/Hotel_Booking/",
-      images: ["/img/room1.png", "/img/room2.png"]
-    }
+    // {
+    //   name: "Room Booking System",
+    //   desc: "Developed backend-focused system handling booking logic, validations, and structured data processing.",
+    //   tech: [".NET", "C#"],
+    //   tag: "Backend",
+    //   link: "https://artyvisual.github.io/Hotel_Booking/",
+    //   images: ["/img/room1.png", "/img/room2.png"]
+    // }
   ];
 
 export default projects;

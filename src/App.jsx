@@ -14,7 +14,7 @@ const App = () => {
   const [open, setOpen] = useState(false);
 
   const handleSubmit = (e) => {
-    
+
 
     e.preventDefault();
 
@@ -32,6 +32,7 @@ const App = () => {
     )
       .then(() => {
         successToast("Message sent. I’ll get back to you.");
+        setOpen(false)
       })
       .catch(() => {
         errorToast("Something went wrong!");
@@ -131,7 +132,7 @@ const App = () => {
 
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  
+
                   <a href="#About" className="text-gray-300 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                     About
                   </a>
@@ -158,12 +159,32 @@ const App = () => {
             From websites to custom dashboards and CMS, I create solutions tailored to your business needs with scalable and efficient systems.
           </h3>
           <div className='flex '>
-            <button className='action-btn me-4' onClick={handleSubmit}>
+            <button
+              className='action-btn me-4'
+              onClick={() => {
+                const phone = "919602652152";
+                const message = encodeURIComponent(
+                  "Hi Abbas, I saw your portfolio and I want to discuss a project."
+                );
+
+                window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+              }}
+            >
               <div>
                 <img src="/img/whatsapp (1).png" width="20" height="20" alt="" />
               </div>
-              Chat On Whatsapp</button>
-            <button className='action-btn'>View My Work</button>
+              Chat On Whatsapp
+            </button>
+            <button
+              className='action-btn'
+              onClick={() => {
+                document.getElementById("projects")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              View My Work
+            </button>
           </div>
         </div>
 
@@ -340,7 +361,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className='fourth-section grid grid-cols-1 md:grid-cols-2 gap-9'>
+      <section id="projects" className='fourth-section grid grid-cols-1 md:grid-cols-2 gap-9'>
 
         {projects.map((project, index) => (
           <div className="project-card" key={index}>
@@ -412,7 +433,7 @@ const App = () => {
             <button className="primary" onClick={() => setOpen(true)}>
               Contact Me
             </button>
-            <button className="secondary">View Resume</button>
+            <NavLink target="_blank" to={"https://drive.google.com/file/d/13iPQrr9hqJwfYVcyWkbrpW4pmpztAZf3/view?usp=drivesdk"} className="secondary">View Resume</NavLink>
           </div>
         </div>
       </section>
@@ -435,6 +456,15 @@ const App = () => {
           <h3 className='big-text'>Got a project? I reply faster than most APIs.</h3>
 
           <div className="icons">
+
+            <NavLink
+              to="https://wa.me/9602652152"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/img/whatsapp (1).png" width="30" height="30" alt="" />
+            </NavLink>
+
             <NavLink
               to="https://www.instagram.com/abbas._.vajwana/"
               target="_blank"
@@ -444,20 +474,13 @@ const App = () => {
             </NavLink>
 
             <NavLink
-              to="https://twitter.com/?lang=en"
+              to="https://www.linkedin.com/in/abbas-wajvana/"
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/img/twitter.png" width="30" height="30" alt="" />
+              <img src="/img/linkedin.png" width="30" height="30" alt="" />
             </NavLink>
 
-            <NavLink
-              to="https://wa.me/9602652152"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src="/img/whatsapp (1).png" width="30" height="30" alt="" />
-            </NavLink>
           </div>
         </div>
 
