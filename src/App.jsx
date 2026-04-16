@@ -7,17 +7,14 @@ import projects from "./data/ProjectsData";
 import emailjs from "emailjs-com";
 import { errorToast, successToast } from './utils/Toast';
 
-
 const App = () => {
 
   const sectionRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleSubmit = (e) => {
-
-
     e.preventDefault();
-
     const formData = {
       name: e.target.name.value,
       email: e.target.email.value,
@@ -97,9 +94,118 @@ const App = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const triggerHeight = window.innerHeight * 0.2;
+      // adjust if your first section height differs
+
+      if (window.scrollY > triggerHeight) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+  useEffect(() => {
+    const canvas = document.getElementById("gridCanvas");
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    const gridSize = 50;
+
+    const particles = [];
+
+    const resize = () => {
+      width = canvas.width = canvas.offsetWidth;
+      height = canvas.height = canvas.offsetHeight;
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // create random particles
+    for (let i = 0; i < 5; i++) {
+      particles.push({
+        x: Math.floor(Math.random() * (width / gridSize)) * gridSize,
+        y: Math.floor(Math.random() * (height / gridSize)) * gridSize,
+        dir: Math.random() > 0.5 ? "vertical" : "horizontal",
+        speed: 0.3 + Math.random() * 0.7,
+        length: 10 + Math.random() * 30
+      });
+    }
+
+    const draw = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      // draw grid
+      ctx.strokeStyle = "rgba(255,255,255,0.08)";
+      ctx.lineWidth = 1;
+
+      for (let x = 0; x < width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, height);
+        ctx.stroke();
+      }
+
+      for (let y = 0; y < height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y);
+        ctx.stroke();
+      }
+
+      // simple lines (no glow, no shadow)
+      const opacity = 1;
+      ctx.strokeStyle = `rgba(125, 84, 247,${opacity})`;
+
+      ctx.lineWidth = 1.8;
+      ctx.shadowBlur = 8;
+      ctx.shadowColor = "rgba(255,255,255,0.6)";
+
+      particles.forEach((p) => {
+        ctx.beginPath();
+
+        if (p.dir === "vertical") {
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x, p.y + p.length);
+          p.y += p.speed;
+
+          if (p.y > height) {
+            p.y = 0;
+            p.x = Math.floor(Math.random() * (width / gridSize)) * gridSize;
+          }
+        } else {
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p.x + p.length, p.y);
+          p.x += p.speed;
+
+          if (p.x > width) {
+            p.x = 0;
+            p.y = Math.floor(Math.random() * (height / gridSize)) * gridSize;
+          }
+        }
+
+        ctx.stroke();
+      });
+
+      requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
   return (
     <div>
-      <nav>
+      <nav className={isScrolled ? "glass" : ""}>
         <div className="mx-auto">
           <div className="relative flex sm:h-16 h-12 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -133,13 +239,31 @@ const App = () => {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
 
-                  <a href="#About" className="text-gray-300 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  <a
+                    onClick={() => {
+                      document.getElementById("about")?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                  >
                     About
                   </a>
-                  <a href="#Projects" className="text-gray-300 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  <a
+                    onClick={() => {
+                      document.getElementById("projects")?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                  >
                     Projects
                   </a>
-                  <a href="#Footer" className="text-gray-300 hover:bg-gray-800 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  <a
+                    onClick={() => {
+                      document.getElementById("contact")?.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }}
+                  >
                     Contact
                   </a>
                 </div>
@@ -150,7 +274,7 @@ const App = () => {
       </nav>
 
       <section className="upper">
-
+        <canvas id="gridCanvas"></canvas>
         <div className="right sm:gap-5 gap-2">
           <h1 className="first">
             I build <span className="highlight">websites</span> and <span className="highlight">systems</span> that simplify your business operations.
@@ -194,7 +318,7 @@ const App = () => {
 
       </section>
 
-      <section className='second-section'>
+      <section id="about" className='second-section'>
         {/* <h1 id="About" className="section-heading">About Me</h1> */}
         <div className='grid md:grid-cols-3 md:gap-24 gap-10 items-center'>
 
@@ -422,7 +546,7 @@ const App = () => {
         </div>
       </section>
 
-      <section className="cta-section">
+      <section id="contact" className="cta-section">
         <div className="cta-box pt-10">
           <h2 className='section-heading '>Let’s build something that actually works</h2>
           <h3 className='mb-4 sm:mb-8'>
