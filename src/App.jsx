@@ -274,9 +274,9 @@ const App = () => {
       </nav>
 
       <section className='hidden-container hidden'>
-        <h1 className='hidden-message first'>
+        <h2 className='hidden-message first'>
           For the best experience, switch to desktop or mobile (Portrait View).
-        </h1>
+        </h2>
       </section>
 
       <section className="upper">
