@@ -212,7 +212,7 @@ p {
 }
 
 /* keep your content above */
-.upper > *:not(canvas) {
+.upper>*:not(canvas) {
   position: relative;
   z-index: 2;
 }
@@ -1425,4 +1425,69 @@ img {
     margin-top: 15px;
   }
 
+}
+
+@media screen and (max-width:1399px) and (min-width:1250px) {
+
+  .picclass {
+    width: 40vw;
+  }
+
+  .work-section .work-flow {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:1500px) and (min-width:1400px) {
+  .picclass {
+    width: 33vw;
+  }
+}
+
+@media screen and (max-width:1249px) and (min-width:551px) {
+
+  html,
+  body {
+    overflow: hidden;
+  }
+
+  body::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 10;
+    background: var(--sec-col);
+    overflow: hidden;
+  }
+
+  .desk-nav {
+    display: none;
+  }
+
+  #dropbtn{
+    display: none;
+  }
+
+  .main-name {
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+  }
+
+  .hidden-container {
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    left: 50%;
+    top: 45%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    color: var(--sec-text-col);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
 }

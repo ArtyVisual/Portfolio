@@ -236,7 +236,7 @@ const App = () => {
             <div className="flex flex-1 items-center justify-center sm:items-stretch">
               <h3 className='main-name borel-regular'>Abbas Wajvana</h3>
 
-              <div className="hidden sm:ml-6 sm:block">
+              <div className="desk-nav hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
 
                   <a
@@ -272,6 +272,12 @@ const App = () => {
           </div>
         </div>
       </nav>
+
+      <section className='hidden-container hidden'>
+        <h1 className='hidden-message first'>
+          For the best experience, switch to desktop or mobile (Portrait View).
+        </h1>
+      </section>
 
       <section className="upper">
         <canvas id="gridCanvas"></canvas>
