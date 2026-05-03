@@ -571,7 +571,7 @@ const App = () => {
       <footer className="footer grid md:grid-cols-3 ">
 
         <div className="footer-left">
-          <h2 className='borel-regular'>Abbas Vajwana</h2>
+          <h2 className='borel-regular'>Abbas Wajvana</h2>
           <h3 className='big-text'>Building systems that simplify business operations.</h3>
         </div>
 
