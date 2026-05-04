@@ -32,8 +32,8 @@
       images: ["/img/booking1.png", "/img/booking2.png"]
     },
     {
-      name: "Zorvyn Dashboard",
-      desc: "Designed interactive UI with responsive layouts and smooth ordering experience for Zorvyn assesment.",
+      name: "Cash Flow System",
+      desc: "Designed interactive UI with responsive layouts and smooth experience for daily cash flow  .",
       tech: ["Tailwind CSS", "React"],
       tag: "Frontend",
       link: "https://abbas-finance-dashboard.vercel.app/",
