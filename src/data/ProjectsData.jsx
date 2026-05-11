@@ -41,7 +41,7 @@
     },
     {
       name: "TISSON VISON",
-      desc: "Built a responsive Shopify gift store with customized UI sections and product collection Password:abbaswajvana123.",
+      desc: "Built a responsive Shopify gift store with customized UI. Password: abbaswajvana123.",
       tech: ["Shopify", "HTML", "CSS", "JavaScript"],
       tag: "Frontend",
       link: "https://tisson-vison.myshopify.com",
