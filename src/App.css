@@ -713,7 +713,7 @@ img {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(5, 120px);
+  grid-template-columns: repeat(6, 120px);
   gap: 40px;
   justify-content: center;
 }
