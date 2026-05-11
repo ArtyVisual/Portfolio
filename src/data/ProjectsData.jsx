@@ -40,6 +40,14 @@
       images: ["/img/zorvyn2.png", "/img/zorvyn3.png"]
     },
     {
+      name: "TISSON VISON",
+      desc: "Built a responsive Shopify gift store with customized UI sections and product collection Password:abbaswajvana123.",
+      tech: ["Shopify", "HTML", "CSS", "JavaScript"],
+      tag: "Frontend",
+      link: "https://tisson-vison.myshopify.com",
+      images: ["/img/tisson.png", "/img/tisson1.png"]
+    },
+    {
       name: "Cake Shop (Client Project)",
       desc: "Designed conversion-focused UI with responsive layouts and smooth ordering experience for real client.",
       tech: ["Tailwind CSS", "UI Design"],
@@ -71,14 +79,14 @@
       link: "https://artyvisual.github.io/X-clone/",
       images: ["/img/xclone1.png", "/img/xclone2.png"]
     },
-    {
-      name: "Marksheet Generator",
-      desc: "Implemented logic-based calculations for grades, percentage, and automated result generation system.",
-      tech: ["HTML", "CSS", "JavaScript"],
-      tag: "Frontend",
-      link: "https://artyvisual.github.io/Marksheet/",
-      images: ["/img/marksheet1.png", "/img/marksheet2.png"]
-    },
+    // {
+    //   name: "Marksheet Generator",
+    //   desc: "Implemented logic-based calculations for grades, percentage, and automated result generation system.",
+    //   tech: ["HTML", "CSS", "JavaScript"],
+    //   tag: "Frontend",
+    //   link: "https://artyvisual.github.io/Marksheet/",
+    //   images: ["/img/marksheet1.png", "/img/marksheet2.png"]
+    // },
     // {
     //   name: "Room Booking System",
     //   desc: "Developed backend-focused system handling booking logic, validations, and structured data processing.",
