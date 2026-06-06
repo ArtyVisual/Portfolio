@@ -512,7 +512,7 @@ const App = () => {
                 ))}
               </div>
 
-              <NavLink to={project.link}>
+              <NavLink target="_blank" to={project.link}>
                 <button>Explore Project →</button>
               </NavLink>
             </div>
