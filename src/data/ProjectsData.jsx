@@ -33,7 +33,7 @@ const projects = [
   },
   {
     name: "FreelanceOS",
-    desc: "Designed a secure system with responsive UI and AI-powered suggestions to manage freelance clients and freelancer records.",
+    desc: "Designed a secure system & AI-powered suggestions to manage clients & freelance records.",
     tech: ["Next.js", "Typescript", "PostgreSQL", "AI"],
     tag: "Full Stack",
     link: "https://abbas-freelance-os.vercel.app/",
