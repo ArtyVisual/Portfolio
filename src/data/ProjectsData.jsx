@@ -32,6 +32,14 @@ const projects = [
     images: ["/img/booking1.png", "/img/booking2.png"]
   },
   {
+    name: "FreelanceOS",
+    desc: "Designed a secure system with responsive UI and AI-powered suggestions to manage freelance clients and freelancer records.",
+    tech: ["Next.js", "Typescript", "PostgreSQL", "AI"],
+    tag: "Full Stack",
+    link: "https://abbas-freelance-os.vercel.app/",
+    images: ["/img/freelanceos1.png", "/img/freelanceos2.png"]
+  },
+  {
     name: "Cash Flow System",
     desc: "Designed interactive UI with responsive layouts and smooth experience for daily cash flow.",
     tech: ["Tailwind CSS", "React"],
@@ -62,14 +70,6 @@ const projects = [
     tag: "Frontend",
     link: "https://artyvisual.github.io/Arty-Password/",
     images: ["/img/password1.png", "/img/password2.png"]
-  },
-  {
-    name: "FreelanceOS",
-    desc: "Designed a secure system with responsive UI and AI-powered suggestions to manage freelance clients and freelancer records.",
-    tech: ["Next.js", "Typescript", "PostgreSQL", "AI"],
-    tag: "Full Stack",
-    link: "https://abbas-freelance-os.vercel.app/",
-    images: ["/img/freelanceos1.png", "/img/freelanceos2.png"]
   },
   // {
   //   name: "Netflix UI Clone",
