@@ -117,7 +117,7 @@ const App = () => {
     const ctx = canvas.getContext("2d");
 
     let width, height;
-    const gridSize = 50;
+    const gridSize = 40;
 
     const particles = [];
 
@@ -136,7 +136,7 @@ const App = () => {
         y: Math.floor(Math.random() * (height / gridSize)) * gridSize,
         dir: Math.random() > 0.5 ? "vertical" : "horizontal",
         speed: 0.3 + Math.random() * 0.7,
-        length: 10 + Math.random() * 30
+        length: 15 + Math.random() * 30
       });
     }
 
@@ -144,7 +144,7 @@ const App = () => {
       ctx.clearRect(0, 0, width, height);
 
       // draw grid
-      ctx.strokeStyle = "rgba(255,255,255,0.08)";
+      ctx.strokeStyle = "rgba(255,255,255,0.09)";
       ctx.lineWidth = 1;
 
       for (let x = 0; x < width; x += gridSize) {
@@ -166,7 +166,7 @@ const App = () => {
       ctx.strokeStyle = `rgba(125, 84, 247,${opacity})`;
 
       ctx.lineWidth = 1.8;
-      ctx.shadowBlur = 8;
+      ctx.shadowBlur = 2;
       ctx.shadowColor = "rgba(255,255,255,0.6)";
 
       particles.forEach((p) => {

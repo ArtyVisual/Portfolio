@@ -704,6 +704,7 @@ img {
 .moving-dot {
   fill: rgb(243, 212, 248);
   filter: drop-shadow(0 0 6px #fff);
+  color:rgba(41, 44, 56);
 }
 
 .third-section {
