@@ -912,21 +912,21 @@ img {
 
 /* variants */
 .project-card .tag.frontend {
-  background: rgba(0, 150, 255, 0.2);
+  background: rgba(0, 150, 255, 0.3);
   color: #97cefb;
 }
 
 .project-card .tag.full-stack {
-  background: rgba(112, 91, 247, 0.2);
+  background: rgba(112, 91, 247, 0.3);
   color: #cabbf7;
 }
 
-.project-card .tag.ui\/ux {
+.project-card .tag.client {
   background: rgba(255, 200, 0, 0.2);
   color: #facc15;
 }
 
-.project-card .tag.backend {
+.project-card .tag.ui\/ux {
   background: rgba(0, 200, 150, 0.15);
   color: #8bf7d0;
 }
@@ -1130,6 +1130,7 @@ img {
   background: linear-gradient(to right, var(--glow-border), var(--glow-shadow));
   color: var(--text-col);
   border: 2px solid var(--glow-border);
+  box-shadow: 0 10px 30px var(--glow-shadow);
 }
 
 .footer {

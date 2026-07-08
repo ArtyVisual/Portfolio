@@ -203,6 +203,16 @@ const App = () => {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
+  // Project Count functionality
+
+  const PROJECTS_PER_LOAD = 6;
+
+  const [visibleProjects, setVisibleProjects] = useState(PROJECTS_PER_LOAD);
+
+  const loadMore = () => {
+    setVisibleProjects((prev) => prev + PROJECTS_PER_LOAD);
+  };
+
   return (
     <div>
       <nav className={isScrolled ? "glass" : ""}>
@@ -493,43 +503,69 @@ const App = () => {
         </div>
       </section>
 
-      <section id="projects" className='fourth-section grid grid-cols-1 md:grid-cols-2 gap-9'>
+      <section
+        id="projects"
+        className="fourth-section "
+      >
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
+          {projects.slice(0, visibleProjects).map((project, index) => (
+            <div className="project-card" key={index}>
+              <div className="project-left">
+                <div className="flex gap-2">
+                  {project.tag.map((t, i) => (
+                    <span
+                      key={i}
+                      className={`tag small-text ${t
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")}`}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
-        {projects.map((project, index) => (
-          <div className="project-card" key={index}>
+                <h2>{project.name}</h2>
+                <p>{project.desc}</p>
 
-            <div className="project-left">
-              <span className={`tag small-text ${project.tag.toLowerCase().replace(" ", "-")}`}>
-                {project.tag}
-              </span>
+                <div className="tech">
+                  {project.tech.map((t, i) => (
+                    <span key={i} className="tech-item small-text">
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
-              <h2>{project.name}</h2>
-              <p>{project.desc}</p>
-
-              <div className="tech">
-                {project.tech.map((t, i) => (
-                  <span key={i} className="tech-item small-text">{t}</span>
-                ))}
+                <NavLink target="_blank" to={project.link}>
+                  <button>Explore Project →</button>
+                </NavLink>
               </div>
 
-              <NavLink target="_blank" to={project.link}>
-                <button>Explore Project →</button>
-              </NavLink>
+              <div className="preview-box">
+                <div className="img-card card1">
+                  <img src={project.images[0]} alt="" />
+                </div>
+                <div className="img-card card2">
+                  <img src={project.images[1]} alt="" />
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
 
-            <div className="preview-box">
-              <div className="img-card card1">
-                <img src={project.images[0]} alt="" />
-              </div>
-              <div className="img-card card2">
-                <img src={project.images[1]} alt="" />
-              </div>
-            </div>
-
+        {visibleProjects < projects.length && (
+          <div className="cta-buttons mt-8">
+            <button
+              onClick={loadMore}
+              className="secondary"
+            >
+              Load More
+            </button>
           </div>
-        ))}
+        )}
 
       </section>
+
+
 
       <section className="work-section">
         <h2 className='section-heading'>How I Work</h2>
