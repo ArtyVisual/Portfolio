@@ -72,7 +72,7 @@ const projects = [
     images: ["/img/cafe1.png", "/img/cafe2.png"]
   },
   {
-    name: "Cake Shop (Client Project)",
+    name: "Layerz Cake",
     desc: "Designed conversion-focused UI with responsive layouts and smooth ordering experience for real client.",
     tech: ["Tailwind CSS", "UI Design"],
     tag: ["UI/UX","Client"],

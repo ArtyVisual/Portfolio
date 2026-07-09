@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 import projects from "./data/ProjectsData";
 import emailjs from "emailjs-com";
 import { errorToast, successToast } from './utils/Toast';
+import TechStack from './component/TechStack/TechStack';
+import Process from './component/Process/Process';
 
 const App = () => {
 
@@ -44,41 +46,41 @@ const App = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    const cards = section.querySelectorAll(".tech-card");
+  // useEffect(() => {
+  //   const section = sectionRef.current;
+  //   const cards = section.querySelectorAll(".tech-card");
 
-    const handleMove = (e) => {
-      const { clientX, clientY } = e;
+  //   const handleMove = (e) => {
+  //     const { clientX, clientY } = e;
 
-      cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
+  //     cards.forEach(card => {
+  //       const rect = card.getBoundingClientRect();
 
-        const x = clientX - (rect.left + rect.width / 2);
-        const y = clientY - (rect.top + rect.height / 2);
+  //       const x = clientX - (rect.left + rect.width / 2);
+  //       const y = clientY - (rect.top + rect.height / 2);
 
-        const moveX = x * 0.08;
-        const moveY = y * 0.08;
+  //       const moveX = x * 0.08;
+  //       const moveY = y * 0.08;
 
-        card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
-      });
-    };
+  //       card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+  //     });
+  //   };
 
-    const handleLeave = () => {
-      cards.forEach(card => {
-        card.style.transform = `translate(0px, 0px) scale(1)`;
-      });
-    };
+  //   const handleLeave = () => {
+  //     cards.forEach(card => {
+  //       card.style.transform = `translate(0px, 0px) scale(1)`;
+  //     });
+  //   };
 
-    // 👇 ONLY bind to section
-    section.addEventListener("mousemove", handleMove);
-    section.addEventListener("mouseleave", handleLeave);
+  //   // 👇 ONLY bind to section
+  //   section.addEventListener("mousemove", handleMove);
+  //   section.addEventListener("mouseleave", handleLeave);
 
-    return () => {
-      section.removeEventListener("mousemove", handleMove);
-      section.removeEventListener("mouseleave", handleLeave);
-    };
-  }, []);
+  //   return () => {
+  //     section.removeEventListener("mousemove", handleMove);
+  //     section.removeEventListener("mouseleave", handleLeave);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const steps = document.querySelectorAll(".work-step");
@@ -334,7 +336,7 @@ const App = () => {
 
       </section>
 
-      <section id="about" className='second-section'>
+      <section id="about" className='second-section spacing'>
         {/* <h1 id="About" className="section-heading">About Me</h1> */}
         <div className='grid md:grid-cols-3 md:gap-24 gap-10 items-center'>
 
@@ -377,19 +379,12 @@ const App = () => {
                       id="chartPath"
                       d="
                         M0,30 
-
                         L20,80
-                        
                         L40,50 
-                      
                         L60,80 
-                      
                         L80,70 
-                       
                         L100,30
-                        
                         L120,60
-                        
                         L140,30
                         L160,80
                         L180,40
@@ -476,7 +471,11 @@ const App = () => {
         </div>
       </section>
 
-      <section ref={sectionRef} className="third-section">
+      <section className="third-section spacing">
+        <TechStack/>
+      </section>
+
+      {/* <section ref={sectionRef} className="third-section spacing">
         <h2 className='section-heading'>Technologies I use to build scalable systems</h2>
         <div className="tech-grid">
 
@@ -501,13 +500,10 @@ const App = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
-      <section
-        id="projects"
-        className="fourth-section "
-      >
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-9'>
+      <section id="projects" className="fourth-section spacing" >
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-9'>
           {projects.slice(0, visibleProjects).map((project, index) => (
             <div className="project-card" key={index}>
               <div className="project-left">
@@ -553,44 +549,23 @@ const App = () => {
         </div>
 
         {visibleProjects < projects.length && (
-          <div className="cta-buttons mt-8">
+          <div className="cta-buttons mt-4 md:mt-8">
             <button
               onClick={loadMore}
               className="secondary"
             >
-              Load More
+              Load More Projects
             </button>
           </div>
         )}
 
       </section>
 
-
-
-      <section className="work-section">
-        <h2 className='section-heading'>How I Work</h2>
-
-        <div className="work-flow">
-          <div className="progress-line"></div>
-
-          {[
-            "Understand your business",
-            "Plan efficient solution",
-            "Build tailored system",
-            "Automate workflows",
-            "Scale & optimize"
-          ].map((step, i) => (
-            <div className="work-step" key={i}>
-              <div className="dot"></div>
-              <div className='step-card'>
-                <h4 className=''>{step}</h4>
-              </div>
-            </div>
-          ))}
-        </div>
+      <section className='work-section spacing'>
+        <Process/>
       </section>
 
-      <section id="contact" className="cta-section">
+      <section id="contact" className="cta-section spacing">
         <div className="cta-box pt-10">
           <h2 className='section-heading '>Let’s build something that actually works</h2>
           <h3 className='mb-4 sm:mb-8'>
