@@ -554,7 +554,7 @@ const App = () => {
               onClick={loadMore}
               className="secondary"
             >
-              Load More Project
+              Load More Projects
             </button>
           </div>
         )}

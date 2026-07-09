@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Process.css";
-import { processData } from "./processData";
+import { processData } from "./ProcessData";
 
 export default function Process() {
 
