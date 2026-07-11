@@ -1,0 +1,124 @@
+/* ==========================
+   WRAPPER
+========================== */
+
+.network {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: auto;
+    user-select: none;
+}
+
+/* ==========================
+   SVG
+========================== */
+
+.network-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* ==========================
+   CONNECTIONS
+========================== */
+
+.network-line {
+    stroke: rgba(255, 255, 255, .08);
+    stroke-width: 2;
+    stroke-linecap: round;
+    fill: none;
+}
+
+/* ==========================
+   NODE
+========================== */
+
+.network-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+
+/* ==========================
+   ICON CIRCLE
+========================== */
+
+.node-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(255, 255, 255, .05);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, .08),
+        0 10px 25px rgba(0, 0, 0, .25);
+    transition: .35s;
+    z-index: 99;
+}
+
+/* ==========================
+   LABEL
+========================== */
+
+.node-title {
+    margin-top: 4px;
+    color: #d4d4d8;
+    font-size: 12px !important;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 1s ease;
+}
+
+/* ==========================
+   HOVER
+========================== */
+
+.network-node.active .node-circle {
+    transform: scale(1.1);
+    background: #292d42;
+    border-color: var(--theme-purple);
+    box-shadow:
+        0 1px 35px rgba(124, 58, 237, .30);
+}
+
+.network-node.active .node-title {
+    font-size: 14px !important;
+}
+
+
+/* ==========================
+   DATA DOT
+========================== */
+.packet {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #8B5CF6;
+    box-shadow: 0 0 12px #8B5CF6, 0 0 25px #8B5CF6;
+    transform: translate(-50%, -50%);
+    transition: left 1s linear, top 1s linear;
+    z-index: 1;
+}
+
+
+@media screen and (max-width:550px) {
+
+    .network {
+        margin: 35px 0;
+    }
+
+}

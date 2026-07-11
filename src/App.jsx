@@ -8,6 +8,7 @@ import emailjs from "emailjs-com";
 import { errorToast, successToast } from './utils/Toast';
 import TechStack from './component/TechStack/TechStack';
 import Process from './component/Process/Process';
+import Network from './component/Network/Network';
 
 const App = () => {
 
@@ -413,34 +414,7 @@ const App = () => {
           </div>
 
           <div className='column'>
-            <div className="timeline">
-
-              <div className="timeline-item" data-aos="fade-up" data-aos-delay="0">
-                <h4>Understand your business & workflow</h4>
-                <div className="line"></div>
-              </div>
-
-              <div className="timeline-item" data-aos="fade-up" data-aos-delay="150">
-                <h4>Design simple and efficient solutions</h4>
-                <div className="line"></div>
-              </div>
-
-              <div className="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                <h4>Build custom systems tailored to you</h4>
-                <div className="line"></div>
-              </div>
-
-              <div className="timeline-item" data-aos="fade-up" data-aos-delay="450">
-                <h4>Automate tasks and reduce manual work</h4>
-                <div className="line"></div>
-              </div>
-
-              <div className="timeline-item" data-aos="fade-up" data-aos-delay="600">
-                <h4>Improve performance and handle growth smoothly</h4>
-                <div className="line"></div>
-              </div>
-
-            </div>
+            <Network/>
           </div>
 
           <div className='column border-card'>

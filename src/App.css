@@ -380,50 +380,6 @@ img {
   box-shadow: 0 10px 30px var(--glow-shadow);
 }
 
-.second-section .timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-/* center vertical line */
-.timeline .line::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 120%;
-  background: rgba(255, 255, 255, 0.2);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timeline-item:last-child .line::before {
-  display: none;
-}
-
-/* each item */
-.timeline-item {
-  position: relative;
-  text-align: center;
-}
-
-/* dot centered on line */
-.timeline .line {
-  width: 110%;
-  height: 2px;
-  margin: 2% -5%;
-  background: rgba(255, 255, 255, 0.2);
-  top: 0;
-}
-
-/* text */
-.timeline-item h4 {
-  margin-top: 15px;
-  color: white;
-}
-
 /* main card */
 .dummy-dashboard {
   position: relative;
@@ -1103,28 +1059,6 @@ img {
   .border-card .group {
     padding: 10px;
     border-radius: 8px;
-  }
-
-  .second-section .timeline {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .timeline .line::before {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 60%;
-    background: rgba(255, 255, 255, 0.2);
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-item:first-child h4 {
-    margin-top: 0;
   }
 
   .dummy-dashboard {

@@ -34,7 +34,7 @@ export default function TechStack() {
 
               <div className="divider" />
 
-              <div className="grid grid-cols-3 md:gap-4 gap-2 mt-5">
+              <div className="grid grid-cols-3 md:gap-4 gap-3 mt-5">
                 {section.techs.map((tech) => {
                   
                   const Icon = tech.icon;
