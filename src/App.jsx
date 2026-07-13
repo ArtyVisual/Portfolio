@@ -9,6 +9,7 @@ import { errorToast, successToast } from './utils/Toast';
 import TechStack from './component/TechStack/TechStack';
 import Process from './component/Process/Process';
 import Network from './component/Network/Network';
+import ThemeToggle from './component/ThemeToggle';
 
 const App = () => {
 
@@ -146,8 +147,12 @@ const App = () => {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
+      const lineColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--grid-col")
+        .trim();
+
       // draw grid
-      ctx.strokeStyle = "rgba(255,255,255,0.09)";
+      ctx.strokeStyle = lineColor;
       ctx.lineWidth = 1;
 
       for (let x = 0; x < width; x += gridSize) {
@@ -165,12 +170,14 @@ const App = () => {
       }
 
       // simple lines (no glow, no shadow)
-      const opacity = 1;
-      ctx.strokeStyle = `rgba(125, 84, 247,${opacity})`;
+      const particleColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--theme-purple")
+        .trim();
 
+      ctx.strokeStyle = particleColor;
+      ctx.shadowColor = particleColor;
       ctx.lineWidth = 1.8;
       ctx.shadowBlur = 2;
-      ctx.shadowColor = "rgba(255,255,255,0.6)";
 
       particles.forEach((p) => {
         ctx.beginPath();
@@ -280,6 +287,9 @@ const App = () => {
                     Contact
                   </a>
                 </div>
+              </div>
+              <div className='toggle-cont'>
+                <ThemeToggle />
               </div>
             </div>
           </div>
@@ -414,7 +424,7 @@ const App = () => {
           </div>
 
           <div className='column'>
-            <Network/>
+            <Network />
           </div>
 
           <div className='column border-card'>
@@ -446,7 +456,7 @@ const App = () => {
       </section>
 
       <section className="third-section spacing">
-        <TechStack/>
+        <TechStack />
       </section>
 
       {/* <section ref={sectionRef} className="third-section spacing">
@@ -536,7 +546,7 @@ const App = () => {
       </section>
 
       <section className='work-section spacing'>
-        <Process/>
+        <Process />
       </section>
 
       <section id="contact" className="cta-section spacing">

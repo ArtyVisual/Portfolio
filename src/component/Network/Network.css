@@ -88,7 +88,7 @@
 
 .network-node.active .node-circle {
     transform: scale(1.1);
-    background: #292d42;
+    background: var(--pri-col);
     border-color: var(--theme-purple);
     box-shadow:
         0 1px 35px rgba(124, 58, 237, .30);
@@ -107,7 +107,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #8B5CF6;
+    background: var(--theme-purple);
     box-shadow: 0 0 12px #8B5CF6, 0 0 25px #8B5CF6;
     transform: translate(-50%, -50%);
     transition: left 1s linear, top 1s linear;
