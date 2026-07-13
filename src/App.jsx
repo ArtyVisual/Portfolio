@@ -48,56 +48,6 @@ const App = () => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   const section = sectionRef.current;
-  //   const cards = section.querySelectorAll(".tech-card");
-
-  //   const handleMove = (e) => {
-  //     const { clientX, clientY } = e;
-
-  //     cards.forEach(card => {
-  //       const rect = card.getBoundingClientRect();
-
-  //       const x = clientX - (rect.left + rect.width / 2);
-  //       const y = clientY - (rect.top + rect.height / 2);
-
-  //       const moveX = x * 0.08;
-  //       const moveY = y * 0.08;
-
-  //       card.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
-  //     });
-  //   };
-
-  //   const handleLeave = () => {
-  //     cards.forEach(card => {
-  //       card.style.transform = `translate(0px, 0px) scale(1)`;
-  //     });
-  //   };
-
-  //   // 👇 ONLY bind to section
-  //   section.addEventListener("mousemove", handleMove);
-  //   section.addEventListener("mouseleave", handleLeave);
-
-  //   return () => {
-  //     section.removeEventListener("mousemove", handleMove);
-  //     section.removeEventListener("mouseleave", handleLeave);
-  //   };
-  // }, []);
-
-  useEffect(() => {
-    const steps = document.querySelectorAll(".work-step");
-    let index = 0;
-
-    const interval = setInterval(() => {
-      steps.forEach(s => s.classList.remove("active"));
-      steps[index].classList.add("active");
-
-      index = (index + 1) % steps.length;
-    }, 1200);
-
-    return () => clearInterval(interval);
-  }, []);
-
   useEffect(() => {
     const handleScroll = () => {
       const triggerHeight = window.innerHeight * 0.2;
@@ -234,14 +184,14 @@ const App = () => {
                   className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   aria-controls="mobile-menu" aria-expanded="false">
 
-                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round"
+                    <path strokeLinecap="round" strokeLinejoin="round"
                       d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                   </svg>
-                  <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  <svg className="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
                     stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
 
                 </button>
