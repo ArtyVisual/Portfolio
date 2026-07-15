@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abbas-wajvana-portfolio.vercel.app/

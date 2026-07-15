@@ -256,6 +256,7 @@ const App = () => {
         <canvas id="gridCanvas"></canvas>
         <div className="right sm:gap-5 gap-2">
           <h1 className="first">
+            <p className='title-name'>Abbas Vajwana | Full Stack Developer</p>
             I build <span className="highlight">websites</span> and <span className="highlight">systems</span> that simplify your business operations.
           </h1>
           <h3 className="subtext sm:pb-5 pb-3">
