@@ -119,26 +119,21 @@
 
     .network {
         margin: 25px 0;
-        height: 280px;
+        height: 340px;
     }
 
     .node-circle {
-        width: 40px;
-        height: 40px;
-    }
-
-    .node-circle svg {
-        width: 18px;
+        width: 45px;
+        height: 45px;
     }
 
     .node-title {
-        font-size: 10px !important;
+        font-size: 12px !important;
         font-weight: 400;
     }
 
     .network-node.active .node-title {
-        font-size: 12px !important;
+        font-size: 13px !important;
     }
-
 
 }

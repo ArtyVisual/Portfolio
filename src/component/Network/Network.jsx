@@ -103,7 +103,6 @@ export default function Network() {
                 })}
             </svg>
 
-
             {nodes.map((node, index) => {
 
                 const Icon = node.icon;
