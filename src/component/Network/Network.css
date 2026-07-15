@@ -5,7 +5,7 @@
 .network {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 380px;
     margin: auto;
     user-select: none;
 }
@@ -118,7 +118,27 @@
 @media screen and (max-width:550px) {
 
     .network {
-        margin: 35px 0;
+        margin: 25px 0;
+        height: 280px;
     }
+
+    .node-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .node-circle svg {
+        width: 18px;
+    }
+
+    .node-title {
+        font-size: 10px !important;
+        font-weight: 400;
+    }
+
+    .network-node.active .node-title {
+        font-size: 12px !important;
+    }
+
 
 }
