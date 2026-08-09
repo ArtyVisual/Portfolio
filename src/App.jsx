@@ -10,6 +10,7 @@ import TechStack from './component/TechStack/TechStack';
 import Process from './component/Process/Process';
 import Network from './component/Network/Network';
 import ThemeToggle from './component/ThemeToggle';
+import { IoIosCloseCircleOutline } from 'react-icons/io';
 
 const App = () => {
 
@@ -599,16 +600,16 @@ const App = () => {
           ></div>
 
           {/* Modal */}
-          <div className="contact-modal relative w-full max-w-md bg-[#0f0f0f] text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
+          <div className="contact-modal relative w-full max-w-md  text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
 
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
               <h3>Let’s Work Together</h3>
               <button
                 onClick={() => setOpen(false)}
-                className=" cursor-pointer text-white/60 hover:text-white text-xl"
+                className="close-button"
               >
-                X
+                <IoIosCloseCircleOutline />
               </button>
             </div>
 
@@ -620,7 +621,7 @@ const App = () => {
                 name="name"
                 placeholder="Your Name"
                 required
-                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
+                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
               />
 
               <input
@@ -628,7 +629,7 @@ const App = () => {
                 name="email"
                 placeholder="Your Email"
                 required
-                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
+                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
               />
 
               <textarea
@@ -636,7 +637,7 @@ const App = () => {
                 placeholder="What do you need?"
                 rows="4"
                 required
-                className="w-full p-3 rounded-lg bg-[#1a1a1a] border border-white/10 focus:border-white/30 outline-none"
+                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
               />
 
               <button
