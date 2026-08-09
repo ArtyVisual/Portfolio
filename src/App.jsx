@@ -173,6 +173,27 @@ const App = () => {
     setVisibleProjects((prev) => prev + PROJECTS_PER_LOAD);
   };
 
+  // Press C to open contact form
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const isTyping =
+        e.target.tagName === "INPUT" ||
+        e.target.tagName === "TEXTAREA" ||
+        e.target.isContentEditable;
+
+      if (isTyping) return;
+
+      if (e.key.toLowerCase() === "c") {
+        setOpen(true);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <div>
       <nav className={isScrolled ? "glass" : ""}>
@@ -407,7 +428,7 @@ const App = () => {
       </section>
 
       <section className="third-section spacing">
-        <TechStack />
+        <TechStack setOpen={setOpen} />
       </section>
 
       {/* <section ref={sectionRef} className="third-section spacing">

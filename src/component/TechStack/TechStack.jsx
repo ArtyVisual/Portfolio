@@ -2,7 +2,7 @@ import { Code2 } from "lucide-react";
 import "./TechStack.css";
 import { techSections } from "./techData";
 
-export default function TechStack() {
+export default function TechStack({setOpen}) {
   return (
     <section>
 
@@ -68,7 +68,7 @@ export default function TechStack() {
           </p>
         </div>
 
-        <button className="primary">
+        <button className="primary" onClick={() => setOpen(true)}>
           Let's Build Something Great
         </button>
 
