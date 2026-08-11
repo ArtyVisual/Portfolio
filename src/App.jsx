@@ -600,7 +600,7 @@ const App = () => {
           ></div>
 
           {/* Modal */}
-          <div className="contact-modal relative w-full max-w-md  text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
+          <div className="contact-modal relative w-full m-5 max-w-md  text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
 
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
