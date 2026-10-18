@@ -1162,15 +1162,15 @@ img {
   }
 
   .picclass {
-    width: 40vh;
+    width: 35vh;
     height: 60vh;
-  }
+  } 
 
   .picclass::after {
     width: 70%;
     height: 60%;
     top: 20%;
-    left: 14%;
+    left: 16%;
     z-index: 10;
     border-radius: 50rem;
   }
