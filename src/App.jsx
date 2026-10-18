@@ -315,7 +315,7 @@ const App = () => {
         </div>
 
         <div className="picclass">
-          <img src="/img/bg4.png" alt="image" />
+          <img src="/img/bg5.png" alt="image" />
         </div>
 
       </section>
@@ -533,7 +533,7 @@ const App = () => {
             <button className="primary" onClick={() => setOpen(true)}>
               Contact Me
             </button>
-            <NavLink target="_blank" to={"https://drive.google.com/file/d/13iPQrr9hqJwfYVcyWkbrpW4pmpztAZf3/view?usp=drivesdk"} className="secondary">View Resume</NavLink>
+            <NavLink target="_blank" to={"https://drive.google.com/file/d/1JyT9qGcMZS6PULQXIqlLbnYsvLX7hyiB/view?usp=drivesdk"} className="secondary">View Resume</NavLink>
           </div>
         </div>
       </section>
@@ -558,7 +558,7 @@ const App = () => {
           <div className="icons">
 
             <NavLink
-              to="https://wa.me/9602652152"
+              to="https://wa.me/919602652152"
               target="_blank"
               rel="noreferrer"
             >
@@ -579,6 +579,14 @@ const App = () => {
               rel="noreferrer"
             >
               <img src="/img/linkedin.png" width="30" height="30" alt="" />
+            </NavLink>
+
+            <NavLink
+              to="https://github.com/ArtyVisual/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/img/github.png" width="30" height="30" alt="" />
             </NavLink>
 
           </div>
