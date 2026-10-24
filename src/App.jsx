@@ -11,10 +11,10 @@ import Process from './component/Process/Process';
 import Network from './component/Network/Network';
 import ThemeToggle from './component/ThemeToggle';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { motion } from "framer-motion";
 
 const App = () => {
 
-  const sectionRef = useRef(null);
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -462,7 +462,18 @@ const App = () => {
       <section id="projects" className="fourth-section spacing" >
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-9'>
           {projects.slice(0, visibleProjects).map((project, index) => (
-            <div className="project-card" key={index}>
+            <motion.div
+              className="project-card"
+              key={project.name}
+              initial={{ opacity: 0, y: 70 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.35 }}
+              transition={{
+                duration:0.5,
+                delay: (index % 2) * 0.1,
+                ease: [2, 1, 0.36, 1],
+              }}
+            >
               <div className="project-left">
                 <div className="flex gap-2">
                   {project.tag.map((t, i) => (
@@ -501,22 +512,24 @@ const App = () => {
                   <img src={project.images[1]} alt="" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {visibleProjects < projects.length && (
-          <div className="cta-buttons mt-4 md:mt-8">
-            <button
-              onClick={loadMore}
-              className="secondary"
-            >
-              Load More Projects
-            </button>
-          </div>
-        )}
+        {
+          visibleProjects < projects.length && (
+            <div className="cta-buttons mt-4 md:mt-8">
+              <button
+                onClick={loadMore}
+                className="secondary"
+              >
+                Load More Projects
+              </button>
+            </div>
+          )
+        }
 
-      </section>
+      </section >
 
       <section className='work-section spacing'>
         <Process />
@@ -598,67 +611,69 @@ const App = () => {
 
       </footer>
 
-      {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {
+        open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
 
-          {/* Overlay */}
-          <div
-            className="absolute inset-0 bg-slate-800/40 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-          ></div>
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-slate-800/40 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+            ></div>
 
-          {/* Modal */}
-          <div className="contact-modal relative w-full m-5 max-w-md  text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
+            {/* Modal */}
+            <div className="contact-modal relative w-full m-5 max-w-md  text-white rounded-2xl shadow-2xl p-6 animate-fadeIn">
 
-            {/* Header */}
-            <div className="flex justify-between items-center mb-4">
-              <h3>Let’s Work Together</h3>
-              <button
-                onClick={() => setOpen(false)}
-                className="close-button"
-              >
-                <IoIosCloseCircleOutline />
-              </button>
+              {/* Header */}
+              <div className="flex justify-between items-center mb-4">
+                <h3>Let’s Work Together</h3>
+                <button
+                  onClick={() => setOpen(false)}
+                  className="close-button"
+                >
+                  <IoIosCloseCircleOutline />
+                </button>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                  className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                  className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
+                />
+
+                <textarea
+                  name="message"
+                  placeholder="What do you need?"
+                  rows="4"
+                  required
+                  className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
+                />
+
+                <button
+                  type="submit"
+                  className="w-full primary rounded py-3"
+                >
+                  Send Message
+                </button>
+
+              </form>
             </div>
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                required
-                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
-              />
-
-              <textarea
-                name="message"
-                placeholder="What do you need?"
-                rows="4"
-                required
-                className="w-full p-3 rounded-lg border border-white/10 focus:border-white/30 outline-none"
-              />
-
-              <button
-                type="submit"
-                className="w-full primary rounded py-3"
-              >
-                Send Message
-              </button>
-
-            </form>
           </div>
-        </div>
-      )}
+        )
+      }
 
     </div >
   );
