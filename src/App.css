@@ -1,6 +1,6 @@
 :root {
-  --pri-col: rgb(67, 71, 85);
-  --sec-col: rgb(41, 44, 56);
+  --pri-col: rgb(107, 127, 179);
+  --sec-col: rgb(11 29 64);
   /* --pri-col: rgb(62, 97, 222);
   --sec-col: rgb(64, 81, 151); */
   --text-col: rgb(255, 255, 255);
@@ -8,24 +8,24 @@
   --sec-text-col: rgb(181, 184, 185);
   --glow-shadow: rgba(99, 102, 241, 0.2);
   --blue-shadow: rgba(59, 130, 246, 0.3);
-  --theme-blue: rgba(59, 131, 246, 0.377);
-  --theme-purple: rgb(125, 84, 247);
-  --card-hover: rgba(36, 40, 58, .58);
-  --card-hover-dark: rgba(255, 255, 255, 0.05);
+  --theme-purple: rgba(4, 46, 255, 0.614);
+  --theme-blue: rgb(125, 84, 247);
+  --card-hover: rgb(11 29 64);
+  --card-hover-dark: rgb(107, 127, 179,0.8);
 }
 
 html[data-theme="light"] {
 
   --pri-col: #7da9fb;
-  --sec-col: #b1c9f8;
+  --sec-col: #324977;
   --grid-col: rgba(255, 255, 255, 0.722);
-  --text-col: #1F2937;
-  --sec-text-col: #cedcf8;
+  --text-col: #ffffff;
+  --sec-text-col: #e9ecf3;
   --glow-shadow: rgba(125, 84, 247, .18);
   --blue-shadow: rgba(99, 102, 241, .15);
   --theme-purple: rgba(4, 46, 255, 0.614);
-  --theme-blue: rgba(125, 84, 247, .12);
-  --card-hover: #b1c9f8;
+  --theme-blue: rgb(125, 84, 247);
+  --card-hover: #324977;
   --card-hover-dark: #7da9fb;
 }
 
@@ -324,7 +324,7 @@ img {
 }
 
 .upper .first {
-  color: var(--sec-text-col);
+  color: var(--sec-col);
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -1045,24 +1045,24 @@ img {
   padding: 5px;
 }
 
-.contact-modal{
+.contact-modal {
   background: var(--sec-col);
 }
 
 .contact-modal input,
-.contact-modal textarea{
+.contact-modal textarea {
   background: var(--pri-col);
   font-weight: 500;
 }
 
-.close-button svg{
+.close-button svg {
   width: 30px;
   height: 30px;
   cursor: pointer;
   transition: all 0.5s ease;
 }
 
-.close-button svg:hover{
+.close-button svg:hover {
   fill: red;
 }
 
@@ -1164,7 +1164,7 @@ img {
   .picclass {
     width: 35vh;
     height: 60vh;
-  } 
+  }
 
   .picclass::after {
     width: 70%;

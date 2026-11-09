@@ -127,7 +127,7 @@
     border: 1px solid var(--theme-purple);
     border-radius: 5px;
     padding: 5px;
-    background: rgb(125, 84, 247, 0.4);
+    background: var(--theme-blue);
 
     svg {
         color: rgb(189, 150, 250);
