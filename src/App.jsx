@@ -288,7 +288,7 @@ const App = () => {
             <button
               className='action-btn me-4'
               onClick={() => {
-                const phone = "919602652152";
+                const phone = "96595505227";
                 const message = encodeURIComponent(
                   "Hi Abbas, I saw your portfolio and I want to discuss a project."
                 );
@@ -571,7 +571,7 @@ const App = () => {
           <div className="icons">
 
             <NavLink
-              to="https://wa.me/919602652152"
+              to="https://wa.me/96595505227"
               target="_blank"
               rel="noreferrer"
             >
