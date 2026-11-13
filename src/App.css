@@ -4,6 +4,7 @@
   /* --pri-col: rgb(62, 97, 222);
   --sec-col: rgb(64, 81, 151); */
   --text-col: rgb(255, 255, 255);
+  --text-col-rgb : 255,255,255;
   --grid-col: rgba(191, 189, 189, 1);
   --sec-text-col: rgb(208, 211, 214);
   --glow-shadow: rgba(99, 102, 241, 0.2);
@@ -19,7 +20,8 @@ html[data-theme="light"] {
   --pri-col: #f8f9fb;
   --sec-col: #749ef3;
   --grid-col: rgba(40, 81, 185, 0.268);
-  --text-col: #0c1831;
+  --text-col: rgb(12, 24, 49);
+  --text-col-rgb : 12, 24, 49;
   --sec-text-col: #4a5073;
   --glow-shadow: rgba(125, 84, 247, .18);
   --blue-shadow: rgba(99, 102, 241, .15);
@@ -815,6 +817,7 @@ html[data-theme="light"] {
 .project-card:hover {
   transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.08);
+  border: 1px solid white;
 }
 
 .project-card .preview-box {
@@ -898,7 +901,8 @@ html[data-theme="light"] {
 
 .project-card .tech-item {
   padding: 4px 8px;
-  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+  background: rgba(var(--text-col-rgb),0.15);
   border-radius: 6px;
   color: var(--sec-text-col);
 }
@@ -907,7 +911,7 @@ html[data-theme="light"] {
   margin-top: 10px;
   padding: 8px 14px;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(var(--text-col-rgb));
   background: transparent;
   transition: 0.3s;
   cursor: pointer;
@@ -920,31 +924,36 @@ html[data-theme="light"] {
 
 .project-card .tag {
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: 5px;
   display: inline-block;
   margin-bottom: 10px;
   font-weight: 500;
 }
 
 /* variants */
+.project-card .tag.new {
+  background: rgba(35, 180, 194, 0.8);
+  color: #cdf6f5;
+}
+
 .project-card .tag.frontend {
-  background: rgba(0, 150, 255, 0.3);
-  color: #97cefb;
+  background: rgba(0, 150, 255, 0.8);
+  color: #cce4f9;
 }
 
 .project-card .tag.full-stack {
-  background: rgba(112, 91, 247, 0.3);
-  color: #cabbf7;
+  background: rgba(77, 52, 236, 0.8);
+  color: #ddd3fb;
 }
 
 .project-card .tag.client {
-  background: rgba(255, 200, 0, 0.2);
-  color: #facc15;
+  background: rgba(201, 129, 4, 0.8);
+  color: #fceddb;
 }
 
 .project-card .tag.ui\/ux {
-  background: rgba(0, 200, 150, 0.15);
-  color: #8bf7d0;
+  background: rgba(1, 163, 123, 0.8);
+  color: #bbf3de;
 }
 
 /* Work Section */
