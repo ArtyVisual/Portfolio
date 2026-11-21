@@ -12,6 +12,7 @@ import Network from './component/Network/Network';
 import ThemeToggle from './component/ThemeToggle';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { motion } from "framer-motion";
+import AIChat from "./component/AIChat/AIChat";
 
 const App = () => {
 
@@ -674,6 +675,8 @@ const App = () => {
           </div>
         )
       }
+
+    <AIChat/>
 
     </div >
   );

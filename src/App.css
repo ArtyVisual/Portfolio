@@ -13,6 +13,8 @@
   --theme-blue: rgb(125, 84, 247);
   --card-hover: rgb(11 29 64);
   --card-hover-dark: rgb(107, 127, 179, 0.8);
+  --chat-window:#232a39;
+  --chat-sec:#11161f;
 }
 
 html[data-theme="light"] {
@@ -29,6 +31,8 @@ html[data-theme="light"] {
   --theme-blue: rgb(125, 84, 247);
   --card-hover: #749ef3;
   --card-hover-dark: #f8f9fb;
+  --chat-window:rgb(221, 222, 225);
+  --chat-sec:#b3b1b1;
 }
 
 html {
