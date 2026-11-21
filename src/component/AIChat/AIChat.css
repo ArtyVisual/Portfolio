@@ -493,7 +493,7 @@
 
   .ai-chat-window {
     width: calc(100vw - 90px);
-    height: calc(100vh - 130px);
+    height: 70vh;
   }
 
   .ai-chat-trigger {
