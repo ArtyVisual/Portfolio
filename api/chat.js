@@ -2,13 +2,9 @@
 import AI_KNOWLEDGE from "../src/data/AIKnowledge.js";
 
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== "POST") {
-    return res.status(405).json({
-      error: "Method not allowed",
-    });
+    return res.status(405).json({ error: "Method not allowed" });
   }
-
 
   try {
     const apiKey = process.env.GEMINI_API_KEY;
@@ -22,7 +18,6 @@ export default async function handler(req, res) {
 
     const { message, history = [] } = req.body || {};
 
-    // Validate incoming message
     if (
       typeof message !== "string" ||
       !message.trim() ||
@@ -39,7 +34,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Validate and sanitize conversation history
     const contents = history.map((item) => {
       if (
         !item ||
@@ -57,7 +51,6 @@ export default async function handler(req, res) {
       };
     });
 
-    // Add the latest visitor message
     contents.push({
       role: "user",
       parts: [{ text: message.trim() }],
@@ -77,18 +70,16 @@ export default async function handler(req, res) {
               {
                 text: `${AI_KNOWLEDGE}
 
-                RESPONSE FORMATTING RULES:
+RESPONSE FORMATTING RULES:
 
-                - Always use proper Markdown formatting.
-                - Use **bold** for important names and labels.
-                - Use bullet lists for skills and project features.
-                - Use numbered lists for step-by-step explanations.
-                - Use short paragraphs with appropriate spacing.
-                - Use headings only when necessary.
-                - Never output Markdown symbols as escaped plain text.
-                - Avoid excessive formatting.
-                - Keep answers concise and easy to read.
-                `
+- Always use proper Markdown formatting.
+- Use **bold** for important names and labels.
+- Use bullet lists for skills and project features.
+- Use numbered lists for step-by-step explanations.
+- Use short paragraphs with appropriate spacing.
+- Use headings only when necessary.
+- Never output Markdown symbols as escaped plain text.
+- Avoid excessive formatting.`,
               },
             ],
           },
@@ -111,11 +102,10 @@ export default async function handler(req, res) {
       });
     }
 
-    const reply =
-      data.candidates?.[0]?.content?.parts
-        ?.map((part) => part.text || "")
-        .join("")
-        .trim();
+    const reply = data.candidates?.[0]?.content?.parts
+      ?.map((part) => part.text || "")
+      .join("")
+      .trim();
 
     if (!reply) {
       return res.status(502).json({
@@ -123,9 +113,7 @@ export default async function handler(req, res) {
       });
     }
 
-    return res.status(200).json({
-      reply,
-    });
+    return res.status(200).json({ reply });
   } catch (error) {
     console.error("Chat API error:", error);
 
